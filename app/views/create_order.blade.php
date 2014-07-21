@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>乐店</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,13 +41,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">小店宝</a>
+          <a class="logo" href="#"></a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/create_ingredient">添加食材</a></li>
-            <li><a href="/create_product">添加产品</a></li>
-            <li><a href="/create_order">点菜</a></li>
+
+            <li class="active"><a href="/">首页</a></li>
+            <li><a href="/create_ingredient">食材</a></li>
+            <li><a href="/create_product">产品</a></li>
+            <li><a href="/create_order">下单 <span class="badge">42</span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -82,7 +84,7 @@
 
       </div>
 
-      
+
 
 
 
