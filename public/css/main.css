@@ -10,6 +10,7 @@ body {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   border: 0; }
 
+/* logo */
 .logo, .logo:hover {
   background: url("../img/logo.png") no-repeat center center;
   background-size: 48px auto;
@@ -28,8 +29,19 @@ body {
 
 .navbar-nav a {
   color: #888888;
-  transition: all 0.5s; }
+  transition: all 0.3s; }
 
 .nav li a {
   padding-left: 25px;
   padding-right: 25px; }
+
+/* button */
+.btn-mwm, .btn-mwm:hover {
+  background: #21d992;
+  border: 0;
+  color: white;
+  transition: all 0.3s;
+  outline: none; }
+
+.btn-mwm:hover {
+  background: #11be7b; }

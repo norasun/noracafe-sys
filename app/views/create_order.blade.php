@@ -50,6 +50,9 @@
             <li><a href="/create_ingredient">食材</a></li>
             <li><a href="/create_product">产品</a></li>
             <li><a href="/create_order">下单 <span class="badge">42</span></a></li>
+            <li>
+              <button type="button" class="btn btn-default btn-mwm" style="margin-top:10px;margin-left:20px;">点单</button>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
