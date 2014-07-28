@@ -1,5 +1,5 @@
 body
-  padding-top: 50px
+  padding-top: 64px
 
 .starter-template
   padding: 40px 15px
@@ -72,13 +72,24 @@ a.Product,.a.Product:hover
   display: block
   color: #666
   display: block
+  transition: all 0.3s
 a.Product:hover
   text-decoration: none
   background: #f8f8f8
+.productList
+  border-top: 1px solid #ddd
+.ProductBoxOpacity
+  opacity: 0.5
 /* PreOrder */
 .PreOrder
+  position: absolute
+  top: 100px
+  left: 0
+  z-index: 3000
   background: #fff
   width: 100%
   border: 1px solid #ccc
   border-radius: 4px
   padding: 10px
+.Order
+  transition: all 1s

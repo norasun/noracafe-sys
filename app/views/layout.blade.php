@@ -49,15 +49,16 @@
             <li><a href="/create_ingredient">成本</a></li>
             <li><a href="/create_product">产品</a></li>
             <li><a href="/create_order">订单 <span class="badge">42</span></a></li>
-            <li>
-              <button href="/create_order" type="button" class="btn btn-default btn-mwm" style="margin-top:10px;margin-left:30px;">点单</button>
-            </li>
+
           </ul>
 
           <ul class="nav navbar-nav pull-right">
             <li class="active"><a href="/">消息</a></li>
             <li class="active"><a href="/">账户</a></li>
-
+            <li>
+              <button href="/create_order" type="button" class="btn btn-default btn-mwm" style="margin-top:10px;margin-left:30px;">点单</button>
+            </li>
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>

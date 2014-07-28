@@ -8,11 +8,7 @@
   ?>
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h4>点单</h4>
-      </div>
-    </div>
+    
 
     <div id="orderApp">
 
