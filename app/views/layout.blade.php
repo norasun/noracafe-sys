@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>小乐店</title>
+    <title>乐店</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -53,8 +53,8 @@
           </ul>
 
           <ul class="nav navbar-nav pull-right">
-            <li class="active"><a href="/">消息</a></li>
-            <li class="active"><a href="/">账户</a></li>
+            <li><a href="/">消息</a></li>
+            <li><a href="/">账户</a></li>
             <li>
               <button href="/create_order" type="button" class="btn btn-default btn-mwm" style="margin-top:10px;margin-left:30px;">点单</button>
             </li>
