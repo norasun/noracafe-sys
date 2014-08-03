@@ -1,0 +1,1 @@
+!function($){$&&($.fn.headroom=function(o){return this.each(function(){var t=$(this),a=t.data("headroom"),e="object"==typeof o&&o;e=$.extend(!0,{},Headroom.options,e),a||(a=new Headroom(this,e),a.init(),t.data("headroom",a)),"string"==typeof o&&a[o]()})},$("[data-headroom]").each(function(){var o=$(this);o.headroom(o.data())}))}(window.Zepto||window.jQuery);

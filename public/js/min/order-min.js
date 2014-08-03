@@ -2,59 +2,66 @@
   /** @jsx React.DOM */
 
   //产品
-  var Product = React.createClass({
+  var Product = React.createClass({displayName: 'Product',
     onClick: function(e){
-
-      var preOrderLeft = $('#'+e.target.id).offset().left;
-      var preOrderTop = $('#'+e.target.id).offset().top - 2;
-      var preOrderWidth = $('#'+e.target.id).outerWidth();
+      /*
+      var productObjId = this.refs.productContent.getDOMNode().id;
+      var jqueryObj = $('#'+productObjId);
+      var preOrderLeft = jqueryObj.offset().left;
+      var preOrderTop = jqueryObj.offset().top - 2;
+      var preOrderWidth = jqueryObj.outerWidth();
       this.props.productClick({productId: this.props.productId, name: this.props.name, price: this.props.price, offsetLeft: preOrderLeft, offsetTop: preOrderTop, width: preOrderWidth});
+      */
+      this.props.orderSubmit({productName: this.props.name, productNum: 1});
       return false;
     },
     render: function(){
       var domid = 'product'+this.props.productId;
       return (
-        <a className="Product clearfix" onClick={this.onClick} href="#" id={domid} >
-          <span className="pull-left">
-            {this.props.name}
-          </span>
-          <span className="pull-right">
-            ¥{this.props.price}
-          </span>
+        React.DOM.a({className: "Product clearfix", href: "#", onClick: this.onClick, ref: "productContent", id: domid}, 
 
-        </a>
+          React.DOM.span({className: "pull-left"}, 
+             this.props.name
+          ), 
+
+          React.DOM.button({href: "#", className: "btn btn-default btn-sm pull-right", type: "submit"}, "加入订单"), 
+
+          React.DOM.span({className: "pull-right mr-20"}, 
+            "¥", this.props.price
+          )
+        )
       );
     }
   });
 
   //产品列表
-  var ProductList = React.createClass({
+  var ProductList = React.createClass({displayName: 'ProductList',
     render: function(){
       var obj = this;
       var productNodes = this.props.data.map(function(product){
         return (
-          <Product name={product.name} price={product.price} productId={product.id} productClick={obj.props.productClick} />
+          Product({name: product.name, price: product.price, productId: product.id, productClick: obj.props.productClick, orderSubmit: obj.props.orderSubmit})
         );
 
 
       });
 
       return (
-        <div className="productList">
-          {productNodes}
-        </div>
+        React.DOM.div({className: "productList"}, 
+          productNodes
+        )
       );
 
     }
   });
 
   //产品控件
-  var ProductBox = React.createClass({
+  var ProductBox = React.createClass({displayName: 'ProductBox',
     render: function(){
       return (
-        <div className="productBox" style={this.props.opacity}>
-          <ProductList data={this.props.data} productClick={this.props.productClick} />
-        </div>
+        React.DOM.div({className: "productBox", style: this.props.opacity}, 
+          ProductList({data: this.props.data, productClick: this.props.productClick, orderSubmit: this.props.orderSubmit})
+        )
       );
     },
     onClick: function(){
@@ -66,63 +73,70 @@
 
 
   //订单
-  var Order = React.createClass({
+  var Order = React.createClass({displayName: 'Order',
     render: function(){
       return (
-        <div className="Order">
-          {this.props.name}
-          {this.props.num}份
-          ¥{this.props.price}元
-        </div>
+        React.DOM.div({className: "Order clearfix"}, 
+          React.DOM.span({className: "pull-left"}, this.props.name), 
+
+          React.DOM.span({className: "pull-right"}, "¥", this.props.price, "元"), 
+          React.DOM.a({href: "#", className: "pull-right orderDelete mr-20"}, React.DOM.i({className: "fa fa-plus-circle"})), 
+          React.DOM.span({className: "pull-right orderNum"}, this.props.num), 
+          React.DOM.a({href: "#", className: "pull-right orderDelete"}, React.DOM.i({className: "fa fa-minus-circle"}))
+
+        )
       );
     }
   });
 
   //订单列表
-  var OrderList = React.createClass({
+  var OrderList = React.createClass({displayName: 'OrderList',
     render: function(){
       var orderNodes = this.props.data.map(function(order){
         return (
-          <Order name={order.name} num={order.num} price={order.price} />
+          Order({name: order.name, num: order.num, price: order.price})
         );
       });
       return (
-        <div class="Orderlist">
-          {orderNodes}
-        </div>
+        React.DOM.div({className: "OrderList"}, 
+          orderNodes
+        )
       );
     }
   });
 
   //订单控件
-  var OrderBox = React.createClass({
+  var OrderBox = React.createClass({displayName: 'OrderBox',
 
     render: function(){
       return (
-          <div class="OrderBox">
-            <OrderList data={this.props.data} />
-          </div>
+          React.DOM.div({class: "OrderBox"}, 
+            OrderList({data: this.props.data})
+          )
       );
 
     }
   });
 
 //订单预处理
+  /*
   var PreOrder = React.createClass({
     getInitialState: function() {
 
       return {productId: '', productName: '', productNum: 1};
     },
     onClick: function(){
-
       this.props.orderSubmit({productName: this.props.name, productNum: this.refs.productNum.getDOMNode().value});
+    },
+    cancelOrder: function(){
+      this.props.cancelOrder();
     },
     render: function(){
       if(this.props.show == 'show'){
 
         return (
 
-          <div className="PreOrder" style={this.props.style}>
+          <div className="PreOrder clearfix" style={this.props.style}>
             {this.props.name}
 
             <select onChange={this.onChange} ref="productNum">
@@ -132,7 +146,8 @@
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
-            <button type="button" onClick={this.onClick} className="btn btn-mwm">添加</button>
+            <button type="button" onClick={this.onClick} className="btn btn-mwm pull-right">确定</button>
+            <button type="button" onClick={this.cancelOrder} className="btn btn-default pull-right mr-20">取消</button>
           </div>
         );
       }else{
@@ -143,9 +158,10 @@
 
     }
   });
+  */
 
   //订单app
-  var OrderApp = React.createClass({
+  var OrderApp = React.createClass({displayName: 'OrderApp',
     getInitialState: function() {
 
       return {data: data, orderData: [], preOrder:[]};
@@ -180,38 +196,69 @@
       this.setState({data:data, orderData:newOrders, productboxopacity:{opacity:1}, preOrder: {show: '', productId: '', productName: ''}});
 
     },
+    cancelOrder: function(){
+      var oldData = this.state.data;
+      var oldOrderData = this.state.orderData;
+      this.setState({data:oldData, orderData:oldOrderData, productboxopacity:{opacity:1}, preOrder: {show: '', productId: '', productName: ''}});
+    },
     render: function(){
       var obj = this;
       var productNodes = this.state.data.map(function(product){
         return (
-          <a className="Product" onClick={obj.onClick} href="#" id={product.id} >
-            {product.name} ¥{product.price}
-          </a>
+          React.DOM.a({className: "Product", onClick: obj.onClick, href: "#", id: product.id}, 
+            product.name, " ¥", product.price
+          )
         );
       });
 
       return (
-        <div className="row">
-          <div className="col-md-8">
-            <div className="white-container">
-              <h3>点单 <small className="text-muted">此界面由店员操作</small></h3>
+        React.DOM.div({className: "row"}, 
+          React.DOM.div({className: "col-md-8"}, 
+            React.DOM.div({className: "white-container"}, 
+              React.DOM.div({className: "mb-15"}, 
+                React.DOM.p(null, 
+                  React.DOM.strong({className: "text-l mr-20"}, "菜单"), 
+                  React.DOM.a({href: "/create_product", className: "btn btn-default btn-xs"}, "商品管理")
+                ), 
+                React.DOM.p(null, 
+                React.DOM.small({className: "text-muted mr-10"}, 
+                  "此界面由掌柜操作，可以在客人点单时录入订单，也可在其他任意时间段把销售情况补录系统。", 
+                  React.DOM.a({href: "#"}, "[ 如何规划菜单 ]")
+                )
+                )
+              ), 
+              ProductBox({data: this.state.data, productClick: this.productClick, orderSubmit: this.orderSubmit, opacity: this.state.productboxopacity})
+            )
+          ), 
 
-              <ProductBox data={this.state.data} productClick={this.productClick} opacity={this.state.productboxopacity}/>
+          React.DOM.div({className: "col-md-4"}, 
+            React.DOM.div({className: "black-container"}, 
+              React.DOM.div({className: "mb-15"}, 
+                React.DOM.strong({className: "text-l mr-20"}, "订单")
+              ), 
+              OrderBox({data: this.state.orderData}), 
+              React.DOM.div({className: "pt-20"}, 
+                "订单时间:", 
+                React.DOM.input({type: "text", className: "form-control"})
+              ), 
+              React.DOM.div({className: "pt-20"}, 
+                "桌位:", 
+                React.DOM.select(null, 
+                  React.DOM.option(null, "1")
+                )
+              ), 
+              React.DOM.div({className: "pt-20 clearfix"}, 
 
-            </div>
-          </div>
+                React.DOM.button({href: "#", className: "btn btn-mwm btn-lg pull-right"}, "下单")
+              )
 
-          <div className="col-md-4">
-            <div className="black-container">
-              <h3>订单</h3>
-              <OrderBox data={this.state.orderData} />
-            </div>
-          </div>
-          <PreOrder data={this.state.preOrder} show={this.state.preOrder.show} name={this.state.preOrder.productName} orderSubmit={this.orderSubmit} style={this.state.preOrder.style}/>
-        </div>
+            )
+          )
+
+        )
       );
     }
   });
 
 
-  React.renderComponent(<OrderApp />, document.getElementById('orderApp'));
+  React.renderComponent(OrderApp(null), document.getElementById('orderApp'));

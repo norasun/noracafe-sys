@@ -980,6 +980,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/css\/font-awesome.min.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/font-awesome.min.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/css\/jquery.datetimepicker.css": {
 		"fileType": 16,
 		"ignore": 0,
@@ -2249,12 +2258,45 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/Headroom.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/Headroom.js",
+		"outputAbbreviatedPath": "\/js\/min\/Headroom-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/headroom.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/headroom.min.js",
+		"outputAbbreviatedPath": "\/js\/min\/headroom.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/js\/jquery.datetimepicker.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/jquery.datetimepicker.js",
 		"outputAbbreviatedPath": "\/js\/min\/jquery.datetimepicker-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/jquery.headroom.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/jquery.headroom.js",
+		"outputAbbreviatedPath": "\/js\/min\/jquery.headroom-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -2271,6 +2313,28 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/jsx\/min\/order-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/jsx\/min\/order-min.js",
+		"outputAbbreviatedPath": "\/js\/jsx\/min\/min\/order-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/jsx\/order.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/jsx\/order.js",
+		"outputAbbreviatedPath": "\/js\/jsx\/min\/order-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 0
+		},
 	"\/js\/JSXTransformer.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -2282,16 +2346,16 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/order.js": {
+	"\/js\/min\/jQuery.headroom-min.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/order.js",
-		"outputAbbreviatedPath": "\/js\/min\/order-min.js",
+		"inputAbbreviatedPath": "\/js\/min\/jQuery.headroom-min.js",
+		"outputAbbreviatedPath": "\/js\/min\/min\/jQuery.headroom-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 0
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/js\/react-with-addons.js": {
 		"fileType": 64,

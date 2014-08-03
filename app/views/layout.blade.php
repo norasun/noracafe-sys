@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link href="/css/jquery.datetimepicker.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/css/main.css" rel="stylesheet">
@@ -32,7 +33,7 @@
 
   <body>
 
-    <div class="navbar navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-fixed-top headroom" role="navigation" id="headroom">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,22 +47,28 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">首页</a></li>
-            <li><a href="/create_ingredient">成本</a></li>
-            <li><a href="/create_product">产品</a></li>
+
+            <li><a href="/create_ingredient">采购</a></li>
+            <li><a href="/create_product">商品</a></li>
             <li><a href="/create_order">订单 <span class="badge">42</span></a></li>
+            <li>
+              <a href="/create_order" type="button" class="btn btn-default nav-btn" style="margin-top:10px;margin-left:30px;"><i class="fa fa-plus"></i> 点单</a>
+            </li>
+
 
           </ul>
 
           <ul class="nav navbar-nav pull-right">
-            <li><a href="/">消息</a></li>
-            <li><a href="/">账户</a></li>
-            <li>
-              <button href="/create_order" type="button" class="btn btn-default btn-mwm" style="margin-top:10px;margin-left:30px;">点单</button>
-            </li>
+
+            <li><a href="/" style="padding-top:14px;padding-bottom:13px;color:#aaa"><i class="fa fa-envelope" style="font-size:22px;"></i></a></li>
+            <li><a href="/" style="padding-top:14px;padding-bottom:13px;color:#aaa"><i class="fa fa-question-circle" style="font-size:22px;"></i></a></li>
+            <li><a href="/" style="padding-top:14px;padding-bottom:13px;color:#aaa"><i class="fa fa-cog" style="font-size:22px;"></i></a></li>
+
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </div>
+    </nav>
 
 
 
@@ -71,21 +78,27 @@
 
 
     </div><!-- /.container -->
-
+    <!-- 基础js -->
     <script src="/js/react.min.js"></script>
-    <script src="/js/JSXTransformer.js"></script>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="/js/jquery.js"></script>
+    <script src="/js/headroom.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-
+    <!-- / 基础js -->
 
 
     <script src="/js/jquery.datetimepicker.js"></script>
     <script charset="utf-8">
       $(function(){
+
+
+          //初始化header，自动显示或消失
+          var myElement = document.querySelector("nav");
+          var headroom  = new Headroom(myElement,{
+            offset: 50
+          });
+          headroom.init();
+          //初始化header，结束
+
 
           $('#default_datetimepicker').datetimepicker({
             lang:'ch',

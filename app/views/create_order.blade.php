@@ -8,12 +8,13 @@
   ?>
 
   <div class="container">
-    
+
 
     <div id="orderApp">
 
     </div>
 
+  </div>
 @stop
 
 
@@ -21,6 +22,6 @@
 <script>
   var data = {{$products}};
 </script>
-<script type="text/jsx" src="/js/order.js"></script>
+<script src="/js/order.js"></script>
 
 @stop
