@@ -4,27 +4,19 @@
   //产品
   var Product = React.createClass({displayName: 'Product',
     onClick: function(e){
-      /*
-      var productObjId = this.refs.productContent.getDOMNode().id;
-      var jqueryObj = $('#'+productObjId);
-      var preOrderLeft = jqueryObj.offset().left;
-      var preOrderTop = jqueryObj.offset().top - 2;
-      var preOrderWidth = jqueryObj.outerWidth();
-      this.props.productClick({productId: this.props.productId, name: this.props.name, price: this.props.price, offsetLeft: preOrderLeft, offsetTop: preOrderTop, width: preOrderWidth});
-      */
       this.props.orderSubmit({productName: this.props.name, productNum: 1});
       return false;
     },
     render: function(){
       var domid = 'product'+this.props.productId;
       return (
-        React.DOM.a({className: "Product clearfix", href: "#", onClick: this.onClick, ref: "productContent", id: domid}, 
+        React.DOM.a({className: "Product clearfix", href: "#", ref: "productContent", id: domid}, 
 
           React.DOM.span({className: "pull-left"}, 
              this.props.name
           ), 
 
-          React.DOM.button({href: "#", className: "btn btn-default btn-sm pull-right", type: "submit"}, "加入订单"), 
+          React.DOM.button({href: "#", className: "btn btn-default btn-sm pull-right", onClick: this.onClick, type: "submit"}, "加入订单"), 
 
           React.DOM.span({className: "pull-right mr-20"}, 
             "¥", this.props.price
@@ -74,15 +66,18 @@
 
   //订单
   var Order = React.createClass({displayName: 'Order',
+    orderDelete: function(){
+      this.props.orderDelete({productName: this.props.name, productNum: 1});
+    },
     render: function(){
       return (
         React.DOM.div({className: "Order clearfix"}, 
           React.DOM.span({className: "pull-left"}, this.props.name), 
 
           React.DOM.span({className: "pull-right"}, "¥", this.props.price, "元"), 
-          React.DOM.a({href: "#", className: "pull-right orderDelete mr-20"}, React.DOM.i({className: "fa fa-plus-circle"})), 
+          React.DOM.a({href: "#", className: "pull-right orderAdd mr-20"}, React.DOM.i({className: "fa fa-plus-circle"})), 
           React.DOM.span({className: "pull-right orderNum"}, this.props.num), 
-          React.DOM.a({href: "#", className: "pull-right orderDelete"}, React.DOM.i({className: "fa fa-minus-circle"}))
+          React.DOM.a({href: "#", className: "pull-right orderDelete", onClick: this.orderDelete}, React.DOM.i({className: "fa fa-minus-circle"}))
 
         )
       );
@@ -118,47 +113,6 @@
     }
   });
 
-//订单预处理
-  /*
-  var PreOrder = React.createClass({
-    getInitialState: function() {
-
-      return {productId: '', productName: '', productNum: 1};
-    },
-    onClick: function(){
-      this.props.orderSubmit({productName: this.props.name, productNum: this.refs.productNum.getDOMNode().value});
-    },
-    cancelOrder: function(){
-      this.props.cancelOrder();
-    },
-    render: function(){
-      if(this.props.show == 'show'){
-
-        return (
-
-          <div className="PreOrder clearfix" style={this.props.style}>
-            {this.props.name}
-
-            <select onChange={this.onChange} ref="productNum">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            <button type="button" onClick={this.onClick} className="btn btn-mwm pull-right">确定</button>
-            <button type="button" onClick={this.cancelOrder} className="btn btn-default pull-right mr-20">取消</button>
-          </div>
-        );
-      }else{
-        return (
-          null
-        );
-      }
-
-    }
-  });
-  */
 
   //订单app
   var OrderApp = React.createClass({displayName: 'OrderApp',
@@ -170,6 +124,27 @@
       var newData = this.state.data;
       var newOrderData = this.state.orderData;
       this.setState({data:newData, orderData:newOrderData, productboxopacity:{opacity:0.5}, preOrder: {show: 'show', style: {left: productInfo.offsetLeft, top: productInfo.offsetTop, width: productInfo.width}, productId: productInfo.productId, productName: productInfo.name}});
+    },
+    orderDelete: function(orderInfo){
+      var oldOrders = this.state.orderData;
+      var num = parseInt(orderInfo.productNum);
+      var newOrders = [];
+      var changed = false;
+      oldOrders.map(function(v, i){
+
+        if(v.name == orderInfo.productName){
+          //如果订单中已经点过的则更新数量
+          num = num + parseInt(v.num);
+          oldOrders.splice(i,1); //删除重复的订单，更新数量，然后在删除的节点后面直接追加
+          newOrders = oldOrders;
+          changed = true;
+        }
+
+
+      });
+
+      this.setState({data:data, orderData:newOrders, productboxopacity:{opacity:1}, preOrder: {show: '', productId: '', productName: ''}});
+
     },
     orderSubmit: function(orderInfo){
       var oldOrders = this.state.orderData;
@@ -222,8 +197,8 @@
                 ), 
                 React.DOM.p(null, 
                 React.DOM.small({className: "text-muted mr-10"}, 
-                  "此界面由掌柜操作，可以在客人点单时录入订单，也可在其他任意时间段把销售情况补录系统。", 
-                  React.DOM.a({href: "#"}, "[ 如何规划菜单 ]")
+                  "此界面由掌柜操作，可以在客人点单时录入订单，也可在其他任意时间段把销售情况补录系统。"
+
                 )
                 )
               ), 

@@ -89,7 +89,7 @@
     render: function(){
       var orderNodes = this.props.data.map(function(order){
         return (
-          Order({name: order.name, num: order.num, price: order.price})
+          Order({name: order.name, num: order.num, price: order.price, orderDelete: this.props.orderDelete})
         );
       });
       return (
@@ -106,7 +106,7 @@
     render: function(){
       return (
           React.DOM.div({class: "OrderBox"}, 
-            OrderList({data: this.props.data})
+            OrderList({data: this.props.data, orderDelete: this.props.orderDelete})
           )
       );
 

@@ -10,13 +10,13 @@
     render: function(){
       var domid = 'product'+this.props.productId;
       return (
-        React.DOM.a({className: "Product clearfix", href: "#", ref: "productContent", id: domid}, 
+        React.DOM.a({className: "Product clearfix", href: "#", onClick: this.onClick, ref: "productContent", id: domid}, 
 
           React.DOM.span({className: "pull-left"}, 
              this.props.name
           ), 
 
-          React.DOM.button({href: "#", className: "btn btn-default btn-sm pull-right", onClick: this.onClick, type: "submit"}, "加入订单"), 
+          React.DOM.button({href: "#", className: "btn btn-default btn-sm pull-right", type: "submit"}, "加入订单"), 
 
           React.DOM.span({className: "pull-right mr-20"}, 
             "¥", this.props.price
@@ -67,7 +67,7 @@
   //订单
   var Order = React.createClass({displayName: 'Order',
     orderDelete: function(){
-      this.props.orderDelete({productName: this.props.name, productNum: 1});
+
     },
     render: function(){
       return (
@@ -125,25 +125,7 @@
       var newOrderData = this.state.orderData;
       this.setState({data:newData, orderData:newOrderData, productboxopacity:{opacity:0.5}, preOrder: {show: 'show', style: {left: productInfo.offsetLeft, top: productInfo.offsetTop, width: productInfo.width}, productId: productInfo.productId, productName: productInfo.name}});
     },
-    orderDelete: function(orderInfo){
-      var oldOrders = this.state.orderData;
-      var num = parseInt(orderInfo.productNum);
-      var newOrders = [];
-      var changed = false;
-      oldOrders.map(function(v, i){
-
-        if(v.name == orderInfo.productName){
-          //如果订单中已经点过的则更新数量
-          num = num + parseInt(v.num);
-          oldOrders.splice(i,1); //删除重复的订单，更新数量，然后在删除的节点后面直接追加
-          newOrders = oldOrders;
-          changed = true;
-        }
-
-
-      });
-
-      this.setState({data:data, orderData:newOrders, productboxopacity:{opacity:1}, preOrder: {show: '', productId: '', productName: ''}});
+    orderDelete: function(){
 
     },
     orderSubmit: function(orderInfo){
@@ -198,7 +180,7 @@
                 React.DOM.p(null, 
                 React.DOM.small({className: "text-muted mr-10"}, 
                   "此界面由掌柜操作，可以在客人点单时录入订单，也可在其他任意时间段把销售情况补录系统。"
-
+                  
                 )
                 )
               ), 

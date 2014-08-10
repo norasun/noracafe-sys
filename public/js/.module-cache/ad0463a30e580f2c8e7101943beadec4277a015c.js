@@ -67,7 +67,7 @@
   //订单
   var Order = React.createClass({displayName: 'Order',
     orderDelete: function(){
-      this.props.orderDelete({productName: this.props.name, productNum: 1});
+
     },
     render: function(){
       return (
@@ -125,25 +125,7 @@
       var newOrderData = this.state.orderData;
       this.setState({data:newData, orderData:newOrderData, productboxopacity:{opacity:0.5}, preOrder: {show: 'show', style: {left: productInfo.offsetLeft, top: productInfo.offsetTop, width: productInfo.width}, productId: productInfo.productId, productName: productInfo.name}});
     },
-    orderDelete: function(orderInfo){
-      var oldOrders = this.state.orderData;
-      var num = parseInt(orderInfo.productNum);
-      var newOrders = [];
-      var changed = false;
-      oldOrders.map(function(v, i){
-
-        if(v.name == orderInfo.productName){
-          //如果订单中已经点过的则更新数量
-          num = num + parseInt(v.num);
-          oldOrders.splice(i,1); //删除重复的订单，更新数量，然后在删除的节点后面直接追加
-          newOrders = oldOrders;
-          changed = true;
-        }
-
-
-      });
-
-      this.setState({data:data, orderData:newOrders, productboxopacity:{opacity:1}, preOrder: {show: '', productId: '', productName: ''}});
+    orderDelete: function(){
 
     },
     orderSubmit: function(orderInfo){
