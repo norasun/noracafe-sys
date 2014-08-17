@@ -111,6 +111,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/react.min.js"></script>
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.datetimepicker.js"></script>
@@ -129,5 +130,10 @@
       });
 
     </script>
+
+    <!--测试flux -->
+    <script src="/js/promise-1.0.0.min.js"></script>
+    <script src="/js/flux.js"></script>
+
   </body>
 </html>

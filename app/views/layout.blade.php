@@ -79,7 +79,6 @@
 
     </div><!-- /.container -->
     <!-- 基础js -->
-    <script src="/js/react.min.js"></script>
     <script src="/js/jquery.js"></script>
     <script src="/js/headroom.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>

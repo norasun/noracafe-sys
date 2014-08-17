@@ -1,0 +1,1 @@
+var Dispatcher=require("./Dispatcher"),copyProperties=require("react/lib/copyProperties"),OrderDispatcher=copyProperties(new Dispatcher,{handleViewAction:function(e){this.dispatch({source:"VIEW_ACTION",action:e})}});module.exports=OrderDispatcher;
