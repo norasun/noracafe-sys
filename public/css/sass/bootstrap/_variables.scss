@@ -29,7 +29,7 @@ $brand-danger:          #d9534f !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #e9e9e9 !default;
+$body-bg:               #fff !default;
 //** Global text color on `<body>`.
 $text-color:            $gray-dark !default;
 
@@ -50,7 +50,7 @@ $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !def
 $font-family-base:        $font-family-sans-serif !default;
 
 $font-size-base:          14px !default;
-$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-large:         ceil(($font-size-base * 2.15)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
 $font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
@@ -92,7 +92,7 @@ $padding-base-vertical:     6px !default;
 $padding-base-horizontal:   12px !default;
 
 $padding-large-vertical:    10px !default;
-$padding-large-horizontal:  16px !default;
+$padding-large-horizontal:  20px !default;
 
 $padding-small-vertical:    5px !default;
 $padding-small-horizontal:  10px !default;

@@ -18,10 +18,10 @@ var OrderItem = React.createClass({
       <div className="Order clearfix">
         <span className="pull-left">{productName}</span>
 
-        <span className="pull-right">¥{productPrice}元</span>
-        <a href="#" className="pull-right orderAdd mr-20"><i className="fa fa-plus-circle"></i></a>
+        <span className="pull-right">¥{productPrice}</span>
+        <a href="#" className="pull-right orderAdd mr-20"> + </a>
         <span className="pull-right orderNum">{productQuantity}</span>
-        <a href="#" className="pull-right orderDelete"><i className="fa fa-minus-circle"></i></a>
+        <a href="#" className="pull-right orderDelete"> - </a>
 
       </div>
 
@@ -30,3 +30,5 @@ var OrderItem = React.createClass({
   }
 
 });
+
+

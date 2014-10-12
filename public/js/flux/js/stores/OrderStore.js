@@ -12,16 +12,51 @@ var _orders = [];
 function add(orderInfo){
 
   var id = orderInfo.productID;
+  var newOrderInfo = orderInfo;
 
-  _orders.push({
-    productID : orderInfo.productID,
-    productPrice: orderInfo.productPrice,
-    productName: orderInfo.productName,
-    productQuantity: ''
+
+  var changed = false;
+  _orders.map(function(v, i){
+    if(v.productID == orderInfo.productID){
+      var quantity = v.productQuantity + 1;
+      newOrderInfo.productQuantity = quantity;
+      _orders.splice(i,1,newOrderInfo);
+      changed = true;
+    }
   });
+
+  if(!changed){
+    var quantity = 1;
+    newOrderInfo.productQuantity = quantity;
+    _orders.push(orderInfo);
+  }
   console.log(_orders);
 
 }
+
+function reduce(orderInfo){
+
+  var id = orderInfo.productID;
+  var newOrderInfo = orderInfo;
+
+
+  var changed = false;
+  _orders.map(function(v, i){
+    if(v.productID == orderInfo.productID){
+      var quantity = v.productQuantity - 1;
+      if(quantity <= 0){
+        quantity = 0;
+        _orders.splice(i,1);
+      }else{
+        newOrderInfo.productQuantity = quantity;
+        _orders.splice(i,1,newOrderInfo);
+      }
+
+    }
+  });
+
+}
+
 
 //修改订单量
 function update(orderInfo){
@@ -57,11 +92,12 @@ AppDispatcher.register(function(payload){
   var data = payload.action.data;
 
   switch(action.actionType){
-    case AppConstants.ORDER_ADD:
-
+    case AppConstants.ActionTypes.ORDER_ADD:
       add(data);
       break;
-
+    case AppConstants.ActionTypes.ORDER_REDUCE:
+      reduce(data);
+      break;
     default:
       return true;
   }

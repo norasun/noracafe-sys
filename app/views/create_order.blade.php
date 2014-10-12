@@ -10,34 +10,49 @@
   <div class="container">
 
     <div class="row">
+      <div class="col-md-8">
+        <div class="mb-15" style="margin-top:20px;">
+          <p>
+            <strong class="text-xl mr-20">点单</strong>
+            <a href="/create_product" class="btn btn-default btn-xs">商品管理</a>
+          </p>
+        </div>
+      </div>
+    
+    </div>
+
+    <div class="row">
 
       <div class="col-md-8">
         <div class="white-container">
 
-          <div class="mb-15">
-            <p>
-              <strong class="text-l mr-20">菜单</strong>
-              <a href="/create_product" class="btn btn-default btn-xs">商品管理</a>
-            </p>
-            <p>
-            <small class="text-muted mr-10">
-              此界面由掌柜操作，可以在客人点单时录入订单，也可在其他任意时间段把销售情况补录系统。
 
-            </small>
-            </p>
-          </div>
-
-          <div id="productList">
+          <div class="container-fluid">
+            <div id="productList" class="row">
+            </div>
           </div>
 
         </div>
       </div>
 
       <div class="col-md-4">
+        <div class="black-container">
+          <form role="form" method="post" action="create_order">
 
-        <div id="orderList">
+          <div id="orderList">
 
+          </div>
+
+          <div class="pt-20">
+            <textarea class="form-control" rows="2" placeholder="备注..."></textarea>
+          </div>
+          <div class="pt-20 clearfix">
+
+            <button href="#" type="submit" class="btn btn-mwm btn-lg pull-right btn-block">下单</button>
+          </div>
+          </form>
         </div>
+
 
       </div>
 

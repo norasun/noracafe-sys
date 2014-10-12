@@ -15,17 +15,37 @@ function getOrderState() {
 
 var OrderItem = React.createClass({
 
+  _addOrder: function(){
 
+    OrderActions.add({
+      productID: this.props.itemID,
+      productName: this.props.name,
+      productPrice: this.props.price
+    });
+
+    return false;
+  },
+
+  _reduceOrder: function(){
+
+    OrderActions.reduce({
+      productID: this.props.itemID,
+      productName: this.props.name,
+      productPrice: this.props.price
+    });
+
+    return false;
+  },
 
   render: function(){
     return(
       <div className="Order clearfix">
         <span className="pull-left">{this.props.name}</span>
 
-        <span className="pull-right">¥{this.props.price}元</span>
-        <a href="#" className="pull-right orderAdd mr-20"><i className="fa fa-plus-circle"></i></a>
+        <span className="pull-right">¥{this.props.price}</span>
+        <a href="#" className="pull-right orderAdd mr-20" onClick={this._addOrder}> + </a>
         <span className="pull-right orderNum">{this.props.num}</span>
-        <a href="#" className="pull-right orderDelete"><i className="fa fa-minus-circle"></i></a>
+        <a href="#" className="pull-right orderDelete" onClick={this._reduceOrder}> - </a>
 
       </div>
     );
@@ -61,9 +81,10 @@ var OrderList = React.createClass({
 
     var orderList = data.map(function(item){
       console.log(item.productQuantity);
+      var key = Date.now();
       return(
 
-          <OrderItem key={item.productID} name={item.productName} price={item.productPrice} num={item.productQuantity} />
+          <OrderItem itemID={item.productID} name={item.productName} price={item.productPrice} num={item.productQuantity} />
       );
 
 

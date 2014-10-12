@@ -20,24 +20,24 @@ var ProductItem = React.createClass({
     OrderActions.add({
       productID: this.props.key,
       productName: this.props.name,
-      productPrice: this.props.price,
+      productPrice: this.props.price
     });
+    return false;
   },
 
   render: function(){
     return(
-      <a className="Product clearfix" href="#" ref="productContent">
+      <div className="col-md-4">
+      <a className="Product clearfix" href="#" ref="productContent"  onClick={this._addOrder}>
 
-        <span className="pull-left">
-           {this.props.name}
-        </span>
-
-        <button href="#" className="btn btn-default btn-sm pull-right" type="submit" onClick={this._addOrder}>加入订单</button>
-
-        <span className="pull-right mr-20">
+        <p className="text-l">
+          <strong>{this.props.name}</strong>
+        </p>
+        <p className="help-block">
           ¥{this.props.price}
-        </span>
+        </p>
       </a>
+      </div>
     );
   }
 
@@ -54,11 +54,14 @@ var ProductSelection = React.createClass({
   render: function(){
 
     var data = this.state.data;
-
+    var ii = 1;
 
     var ProductList = data.map(function(item){
+
       return (
-        <ProductItem name={item.name} price={item.price} key={item.id} />
+
+        <ProductItem name={item.name} price={item.price} key={item.id} itemID={item.id} />
+
       );
 
     });
@@ -68,8 +71,10 @@ var ProductSelection = React.createClass({
 
 
     return (
-      <div>
-        {ProductList}
+      <div class="container-fluid">
+        <div class="row clearfix">
+          {ProductList}
+        </div>
       </div>
     );
   }

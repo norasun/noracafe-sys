@@ -6,10 +6,18 @@ var OrderActions = {
   add: function(orderInfo){
 
     AppDispatcher.handleViewAction({
-      actionType: AppConstants.ORDER_ADD,
+      actionType: AppConstants.ActionTypes.ORDER_ADD,
       data: orderInfo
     });
-    
+
+  },
+
+  reduce: function(orderInfo){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.ActionTypes.ORDER_REDUCE,
+      data: orderInfo
+    });
+
   }
 
 }

@@ -60,9 +60,7 @@
 
           <ul class="nav navbar-nav pull-right">
 
-            <li><a href="/" style="padding-top:14px;padding-bottom:13px;color:#aaa"><i class="fa fa-envelope" style="font-size:22px;"></i></a></li>
-            <li><a href="/" style="padding-top:14px;padding-bottom:13px;color:#aaa"><i class="fa fa-question-circle" style="font-size:22px;"></i></a></li>
-            <li><a href="/" style="padding-top:14px;padding-bottom:13px;color:#aaa"><i class="fa fa-cog" style="font-size:22px;"></i></a></li>
+            <li><a href="/" > ... </a></li>
 
 
           </ul>
