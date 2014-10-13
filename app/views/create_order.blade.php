@@ -14,11 +14,11 @@
         <div class="mb-15" style="margin-top:20px;">
           <p>
             <strong class="text-xl mr-20">点单</strong>
-            <a href="/create_product" class="btn btn-default btn-xs">商品管理</a>
+            <a href="/create_product" class="btn btn-default btn-xs">菜单设置</a>
           </p>
         </div>
       </div>
-    
+
     </div>
 
     <div class="row">
@@ -67,6 +67,6 @@
   var data = {{$products}};
 </script>
 <!--script src="/js/order.js"></script-->
-<script src="/js/flux/bundle.js"></script>
+<script src="/js/flux/js/bundle.js"></script>
 
 @stop

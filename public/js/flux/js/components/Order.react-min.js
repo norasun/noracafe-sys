@@ -92,7 +92,7 @@ var OrderList = React.createClass({
 
     });
 
-    var textData = JSON.stringify(data);
+    var textData = $.parseJSON(data);
     return(
       <div>
         {orderList}
@@ -106,3 +106,5 @@ var OrderList = React.createClass({
 });
 
 module.exports = OrderList;
+
+

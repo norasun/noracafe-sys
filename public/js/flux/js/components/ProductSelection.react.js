@@ -26,9 +26,17 @@ var ProductItem = React.createClass({
   },
 
   render: function(){
+    //默认情况下产品未被选中
+    var selected = 'Product clearfix';
+    var select_num = '';
+    //如果选中则高亮该产品
+    if(this.props.num > 0){
+      selected = 'Product clearfix selectedProduct';
+      select_num = 'x' + this.props.num;
+    }
     return(
       <div className="col-md-4">
-      <a className="Product clearfix" href="#" ref="productContent"  onClick={this._addOrder}>
+      <a className={selected} href="#" ref="productContent"  onClick={this._addOrder}>
 
         <p className="text-l">
           <strong>{this.props.name}</strong>
@@ -36,6 +44,9 @@ var ProductItem = React.createClass({
         <p className="help-block">
           ¥{this.props.price}
         </p>
+        <span className="select_num">
+          {select_num}
+        </span>
       </a>
       </div>
     );
@@ -50,7 +61,18 @@ var ProductSelection = React.createClass({
   getInitialState: function(){
     return {data : getProductState()};
   },
+  componentDidMount: function() {
+    ProductStore.addChangeListener(this._onChange);
+  },
 
+  componentWillUnmount: function() {
+    ProductStore.removeChangeListener(this._onChange);
+  },
+
+  _onChange: function(){
+
+    this.setState({data: getProductState()});
+  },
   render: function(){
 
     var data = this.state.data;
@@ -60,7 +82,7 @@ var ProductSelection = React.createClass({
 
       return (
 
-        <ProductItem name={item.name} price={item.price} key={item.id} itemID={item.id} />
+        <ProductItem name={item.name} price={item.price} key={item.id} itemID={item.id} num={item.number} />
 
       );
 

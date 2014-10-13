@@ -104,14 +104,16 @@ nav li a.nav-btn
 /* product*/
 a.Product,.a.Product:hover
   padding: 14px
-  margin: 10px 0
+  margin: 10px 1px
   border: 1px solid #e5e5e5
   border-radius: 4px
   display: block
   color: #424242
   display: block
   transition: all 0.3s
-a.Product:hover
+  position: relative
+  text-decoration: none
+a.Product:hover, a.Product:active
   text-decoration: none
   background: #f8f8f8
 a.Product p, a.Product i
@@ -123,6 +125,16 @@ a.Product p.help-block
 
 a.Product .btn
   margin: 7px 0 0 0
+a.selectedProduct
+  border: 2px solid #1DE9B6
+  margin: 9px 0
+a.Product span.select_num
+  color: #1DE9B6
+  font-size: 22px
+  position: absolute
+  bottom: 10px
+  right: 10px
+
 .productList
   //border-top: 1px solid #ddd
 .ProductBoxOpacity

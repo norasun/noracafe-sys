@@ -2,7 +2,6 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var AppConstants = require('../constants/AppConstants');
 var merge = require('react/lib/merge');
-
 var CHANGE_EVENT = 'change';
 
 var _orders = [];
@@ -31,7 +30,6 @@ function add(orderInfo){
     _orders.push(orderInfo);
   }
   console.log(_orders);
-
 }
 
 function reduce(orderInfo){
@@ -58,11 +56,6 @@ function reduce(orderInfo){
 }
 
 
-//修改订单量
-function update(orderInfo){
-  var newQuantity = _orders[orderInfo.productID].quantity + 1;
-  _orders[id].productQuantity = newQuantity;
-}
 
 var OrderStore = merge(EventEmitter.prototype, {
 
@@ -86,7 +79,7 @@ var OrderStore = merge(EventEmitter.prototype, {
 });
 
 
-AppDispatcher.register(function(payload){
+OrderStore.dispatchToken = AppDispatcher.register(function(payload){
 
   var action = payload.action;
   var data = payload.action.data;

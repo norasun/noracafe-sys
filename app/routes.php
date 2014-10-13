@@ -53,6 +53,7 @@ Route::post('/create_product', function(){
 	$Product = new Product;
 	$Product->name = Input::get('name');
 	$Product->price = Input::get('price');
+	$Product->number = 0;
 	$Product->save();
 
 
@@ -71,6 +72,49 @@ Route::post('/create_order', function(){
 	$order = new Order;
 	$order->detail_id = 123;
 	$order->save();
+
+	echo $order_id = $order->id;
+	$order_details = Input::get('hiddendata');
+	$order_details = json_decode($order_details, true);
+	//print_r($order_details);
+
+	$order_list = Array();
+	foreach($order_details as $v){
+
+
+
+		$order_list[] = new Orderdetail(array(
+			'order_id' => $order_id,
+			'product_id' => $v['productID'],
+			'num' => $v['productQuantity'],
+			'price' => $v['productPrice'],
+			'name' => $v['productName']
+		));
+
+	}
+
+	$thisOrder = Order::find($order_id);
+	$thisOrder->Orderdetails()->saveMany($order_list);
+
+	//print_r($order_list);
+
+
+
+	// foreach($order_details as $v){
+	// 	$Orderdetail = new Orderdetail(array(
+	// 			'order_id' => $order_id,
+	// 			'product_id' => $v['productID'],
+	// 			'num' => $v['productQuantity'],
+	// 			'price' => $v['productPrice'],
+	// 			'name' => $v['productName']
+	// 		));
+	//
+	// 	$Orderdetail->save();
+	// }
+
+
+
+
 
 });
 //
