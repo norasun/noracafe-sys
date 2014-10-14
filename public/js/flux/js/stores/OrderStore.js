@@ -13,6 +13,12 @@ if(typeof orderListData == 'undefined'){
   var _orders = orderListData; //从服务端网页中获取数据
 }
 
+if(typeof todoListData == 'undefined'){
+  var _todoList = {};
+}else{
+  var _todoList = todoListData; //从服务端网页中获取数据
+}
+
 
 //添加订单
 function add(orderInfo){
@@ -71,6 +77,9 @@ var OrderStore = merge(EventEmitter.prototype, {
   },
   getOrderList: function(){
     return _orders;
+  },
+  getTodoList: function(){
+    return _todoList;
   },
 
   emitChange: function(){

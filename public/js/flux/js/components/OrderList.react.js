@@ -33,6 +33,8 @@ var OrderList = React.createClass({
     var listData = this.state.data;
     var a = listData.map(function(v, i){
       var total_price = 0;
+      var createTime = new Date(v.created_at);
+      var formated_time =  createTime.getFullYear() + '-' + createTime.getMonth() + '-' + createTime.getDate();
       var b = v.orderdetails.map(function(item){
         var item_price = parseInt(item.num) * parseInt(item.price);
         total_price += item_price;
@@ -45,18 +47,17 @@ var OrderList = React.createClass({
         );
       });
       return(
-        <div className="col-md-12">
+        <div>
 
           <div className="perOrder clearfix">
-            <div className="row">
-              <div className="col-md-8"><b>#{v.id}</b></div>
-              <div className="col-md-4 text-right"><small className="small text-gray">创建于: {v.created_at}</small></div>
+            <div className="row b_line">
+              <div className="col-md-6"><b>#{v.id}</b></div>
+              <div className="col-md-6 text-right"><small className="small text-gray">{formated_time}</small></div>
             </div>
-            <div className="container-fluid">
+            <div>
               {b}
-              <div className="row">
-                <div className="col-md-12 text-right text-xl lineList"><b>¥{total_price}</b></div>
-              </div>
+              <div className="text-right text-xl pt-10"><b>¥{total_price}</b></div>
+
             </div>
 
 
