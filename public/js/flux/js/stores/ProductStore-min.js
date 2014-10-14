@@ -6,10 +6,18 @@ var merge = require('react/lib/merge');
 
 var CHANGE_EVENT = 'change';
 
-var _products = data; //从服务端网页中获取数据
+if(typeof data == 'undefined'){
+  var _products = {};
+}else{
+  var _products = data; //从服务端网页中获取数据
+}
+
+
+
+
 
 function updateit(info){
-  var obj = OrderStore.getAll();
+  var obj = OrderStore.getNewOrder();
   _products.map(function(v, i){
 
       if(v.id == info.productID){
@@ -45,9 +53,9 @@ var ProductStore = merge(EventEmitter.prototype, {
 
 ProductStore.dispatchToken = AppDispatcher.register(function(payload){
 
-  // AppDispatcher.waitFor([
-  //   OrderStore.dispatchToken
-  // ]);
+  AppDispatcher.waitFor([
+    OrderStore.dispatchToken
+  ]);
 
   var action = payload.action;
   var data = payload.action.data;

@@ -13,7 +13,7 @@
       <div class="col-md-8">
         <div class="mb-15" style="margin-top:20px;">
           <p>
-            <strong class="text-xl mr-20">点单</strong>
+            <strong class="text-xxl mr-20">点单</strong>
             <a href="/create_product" class="btn btn-default btn-xs">菜单设置</a>
           </p>
         </div>
@@ -39,7 +39,7 @@
         <div class="black-container">
           <form role="form" method="post" action="create_order">
 
-          <div id="orderList">
+          <div id="createOrderList">
 
           </div>
 

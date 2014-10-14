@@ -59,6 +59,10 @@ Route::post('/create_product', function(){
 
 });
 
+Route::get('/orders', function()
+{
+	return View::make('orders');
+});
 
 //下订单
 Route::get('/create_order', function(){
@@ -73,7 +77,7 @@ Route::post('/create_order', function(){
 	$order->detail_id = 123;
 	$order->save();
 
-	echo $order_id = $order->id;
+	$order_id = $order->id;
 	$order_details = Input::get('hiddendata');
 	$order_details = json_decode($order_details, true);
 	//print_r($order_details);
@@ -96,21 +100,7 @@ Route::post('/create_order', function(){
 	$thisOrder = Order::find($order_id);
 	$thisOrder->Orderdetails()->saveMany($order_list);
 
-	//print_r($order_list);
-
-
-
-	// foreach($order_details as $v){
-	// 	$Orderdetail = new Orderdetail(array(
-	// 			'order_id' => $order_id,
-	// 			'product_id' => $v['productID'],
-	// 			'num' => $v['productQuantity'],
-	// 			'price' => $v['productPrice'],
-	// 			'name' => $v['productName']
-	// 		));
-	//
-	// 	$Orderdetail->save();
-	// }
+	return Redirect::to('/orders');
 
 
 

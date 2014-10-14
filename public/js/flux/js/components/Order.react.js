@@ -5,10 +5,16 @@ var ReactPropTypes = React.PropTypes;
 var OrderActions = require('../actions/OrderActions');
 var OrderStore = require('../stores/OrderStore');
 
-
-function getOrderState() {
+//获取创建订单的数据
+function getNewOrderState() {
   return {
-    allOrders: OrderStore.getAll()
+    allOrders: OrderStore.getNewOrder()
+  };
+}
+//获取订单列表的数据
+function getcreateOrderListState() {
+  return {
+    createOrderList: OrderStore.getcreateOrderList()
   };
 }
 
@@ -57,10 +63,12 @@ var OrderItem = React.createClass({
 });
 
 
-var OrderList = React.createClass({
+
+
+var createOrderList = React.createClass({
 
   getInitialState: function(){
-    return getOrderState();
+    return getNewOrderState();
   },
 
   componentDidMount: function() {
@@ -73,14 +81,14 @@ var OrderList = React.createClass({
 
   _onChange: function(){
 
-    this.setState(getOrderState());
+    this.setState(getNewOrderState());
   },
 
   render: function(){
 
     var data = this.state.allOrders;
 
-    var orderList = data.map(function(item){
+    var createOrderList = data.map(function(item){
       console.log(item.productQuantity);
       var key = Date.now();
       return(
@@ -95,7 +103,7 @@ var OrderList = React.createClass({
     var textData = JSON.stringify(data);
     return(
       <div>
-        {orderList}
+        {createOrderList}
         <input type="hidden" name="hiddendata" value={textData} />
       </div>
 
@@ -105,4 +113,4 @@ var OrderList = React.createClass({
 
 });
 
-module.exports = OrderList;
+module.exports = createOrderList;

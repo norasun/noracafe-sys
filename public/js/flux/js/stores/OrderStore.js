@@ -4,7 +4,14 @@ var AppConstants = require('../constants/AppConstants');
 var merge = require('react/lib/merge');
 var CHANGE_EVENT = 'change';
 
-var _orders = [];
+
+var _newOrder = [];
+
+if(typeof orderListData == 'undefined'){
+  var _orders = {};
+}else{
+  var _orders = orderListData; //从服务端网页中获取数据
+}
 
 
 //添加订单
@@ -15,11 +22,11 @@ function add(orderInfo){
 
 
   var changed = false;
-  _orders.map(function(v, i){
+  _newOrder.map(function(v, i){
     if(v.productID == orderInfo.productID){
       var quantity = v.productQuantity + 1;
       newOrderInfo.productQuantity = quantity;
-      _orders.splice(i,1,newOrderInfo);
+      _newOrder.splice(i,1,newOrderInfo);
       changed = true;
     }
   });
@@ -27,9 +34,9 @@ function add(orderInfo){
   if(!changed){
     var quantity = 1;
     newOrderInfo.productQuantity = quantity;
-    _orders.push(orderInfo);
+    _newOrder.push(orderInfo);
   }
-  console.log(_orders);
+  console.log(_newOrder);
 }
 
 function reduce(orderInfo){
@@ -39,15 +46,15 @@ function reduce(orderInfo){
 
 
   var changed = false;
-  _orders.map(function(v, i){
+  _newOrder.map(function(v, i){
     if(v.productID == orderInfo.productID){
       var quantity = v.productQuantity - 1;
       if(quantity <= 0){
         quantity = 0;
-        _orders.splice(i,1);
+        _newOrder.splice(i,1);
       }else{
         newOrderInfo.productQuantity = quantity;
-        _orders.splice(i,1,newOrderInfo);
+        _newOrder.splice(i,1,newOrderInfo);
       }
 
     }
@@ -59,7 +66,10 @@ function reduce(orderInfo){
 
 var OrderStore = merge(EventEmitter.prototype, {
 
-  getAll: function(){
+  getNewOrder: function(){
+    return _newOrder;
+  },
+  getOrderList: function(){
     return _orders;
   },
 

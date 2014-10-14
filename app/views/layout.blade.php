@@ -50,7 +50,7 @@
 
             <li><a href="/create_ingredient">采购</a></li>
             <li><a href="/create_product">商品</a></li>
-            <li><a href="/create_order">订单 <span class="badge">42</span></a></li>
+            <li><a href="/orders">订单</a></li>
             <li>
               <a href="/create_order" type="button" class="btn btn-default nav-btn" style="margin-top:10px;margin-left:30px;"><i class="fa fa-plus"></i> 点单</a>
             </li>
@@ -95,6 +95,8 @@
           });
           headroom.init();
           //初始化header，结束
+
+
 
 
           $('#default_datetimepicker').datetimepicker({
