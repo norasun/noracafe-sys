@@ -3,12 +3,13 @@
 var React = require('react');
 var ReactPropTypes = React.PropTypes;
 var OrderActions = require('../actions/OrderActions');
-var OrderActions = require('../actions/TodoActions');
+var TodoActions = require('../actions/TodoActions');
 var OrderStore = require('../stores/OrderStore');
 
 
 //获取订单列表的数据
 function getTodoListState() {
+
   return OrderStore.getTodoList();
 }
 
@@ -26,27 +27,29 @@ var TodoList = React.createClass({
   },
 
   _onChange: function(){
-
-    this.setState(getTodoListState());
+    this.setState({data: getTodoListState()});
+    alert('changed!');
   },
   render: function(){
     var listData = this.state.data;
     var a = listData.map(function(v, i){
 
+      var first_keyname = 'productname' + i;
 
-      var b = v.orderdetails.map(function(item){
+      var b = v.orderdetails.map(function(item, i){
+        var second_keyname = 'todolistname' + i;
         return(
-          <div className="row pb-10">
+          <div key={second_keyname} className="row pb-10">
             <div className="col-md-7 text-m">
 
-              <span className="ml-10">{item.num}份 <Todo totalNum={item.num} checkedNum={1} /></span>
+              <span className="ml-10">{item.num}份 <Todo todoId={item.id} totalNum={item.num} checkedNum={item.checked_num} /></span>
 
             </div>
           </div>
         );
       });
       return(
-        <div>
+        <div key={first_keyname}>
 
           <div className="clearfix mb-20">
             <div className="row b_line">
@@ -76,16 +79,27 @@ var Todo = React.createClass({
   getInitialState: function(){
     return null;
   },
-  wow: function(){
-    alert(1);
+
+  updateTodolist: function(event){
+    //console.log(data);
+  //  console.log(event.target.value);
+    TodoActions.update({
+      "todoId": this.props.todoId,
+      "checkedNum": event.target.value
+    });
+
   },
   render: function(){
     var checklist = [];
+
+    var checkedNum = parseInt(this.props.checkedNum);
     for(i=1;i<=parseInt(this.props.totalNum);i++){
-      if(i<=this.props.checkedNum){
-          checklist.push(<input type="checkbox" className="mr-10" defaultChecked onClick={this.wow}/>);
+      var todo_keyname = 'todo' + i;
+      if(i<=checkedNum){
+
+          checklist.push(<input key={todo_keyname} type="checkbox" className="mr-10" value={i} defaultChecked onChange={this.updateTodolist} />);
       }else{
-          checklist.push(<input type="checkbox" className="mr-10" />);
+          checklist.push(<input key={todo_keyname} type="checkbox" className="mr-10" value={i} onChange={this.updateTodolist} />);
       }
 
 

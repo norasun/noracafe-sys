@@ -26,20 +26,22 @@ var OrderList = React.createClass({
 
   _onChange: function(){
 
-    this.setState(getOrderListState());
+    this.setState({data: getOrderListState()});
   },
 
   render: function(){
     var listData = this.state.data;
     var a = listData.map(function(v, i){
+      var first_keyname = 'order' + i;
       var total_price = 0;
       var createTime = new Date(v.created_at);
       var formated_time =  createTime.getFullYear() + '-' + createTime.getMonth() + '-' + createTime.getDate();
-      var b = v.orderdetails.map(function(item){
+      var b = v.orderdetails.map(function(item, i){
+        var second_keyname = "orderdetail" + i;
         var item_price = parseInt(item.num) * parseInt(item.price);
         total_price += item_price;
         return(
-          <div className="row lineList">
+          <div className="row lineList" key={second_keyname}>
             <div className="col-md-7 text-m">{item.name}</div>
             <div className="col-md-2 text-right">x{item.num}</div>
             <div className="col-md-3 text-right"><b>¥{item_price}</b></div>
@@ -47,7 +49,7 @@ var OrderList = React.createClass({
         );
       });
       return(
-        <div>
+        <div  key={first_keyname}>
 
           <div className="perOrder clearfix">
             <div className="row b_line">

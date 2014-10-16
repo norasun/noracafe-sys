@@ -68,6 +68,24 @@ function reduce(orderInfo){
 
 }
 
+function updateTodo(data){
+
+  _todoList.map(function(v,i){
+    var orderdetails = v.orderdetails;
+    var firstDom = i;
+    orderdetails.map(function(v,i){
+      var secondDom = i;
+      if(v.id == data.todoId){
+        _todoList[firstDom].orderdetails[secondDom].checked_num = data.checkedNum;
+        
+      }
+    });
+  });
+
+
+
+}
+
 
 
 var OrderStore = merge(EventEmitter.prototype, {
@@ -80,9 +98,6 @@ var OrderStore = merge(EventEmitter.prototype, {
   },
   getTodoList: function(){
     return _todoList;
-  },
-  updateTodoList: function(){
-    
   },
 
   emitChange: function(){
@@ -112,6 +127,9 @@ OrderStore.dispatchToken = AppDispatcher.register(function(payload){
       break;
     case AppConstants.ActionTypes.ORDER_REDUCE:
       reduce(data);
+      break;
+    case AppConstants.ActionTypes.TODO_UPDATE:
+      updateTodo(data);
       break;
     default:
       return true;
