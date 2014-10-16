@@ -81,6 +81,9 @@ var OrderStore = merge(EventEmitter.prototype, {
   getTodoList: function(){
     return _todoList;
   },
+  updateTodoList: function(){
+    
+  },
 
   emitChange: function(){
     this.emit(CHANGE_EVENT);

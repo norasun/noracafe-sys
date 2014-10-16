@@ -82,25 +82,29 @@ Route::post('/create_order', function(){
 	$order_details = json_decode($order_details, true);
 	//print_r($order_details);
 
+	$thisOrder = Order::find($order_id);
+
 	$order_list = Array();
+
 	foreach($order_details as $v){
-
-
 
 		$order_list[] = new Orderdetail(array(
 			'order_id' => $order_id,
 			'product_id' => $v['productID'],
 			'num' => $v['productQuantity'],
+			'checked_num' => 0,
 			'price' => $v['productPrice'],
 			'name' => $v['productName']
 		));
 
 	}
+	// print_r($todo_list);
 
-	$thisOrder = Order::find($order_id);
+
 	$thisOrder->Orderdetails()->saveMany($order_list);
+	// $thisOrder->Todolist()->saveMany($todo_list);
 
-	return Redirect::to('/orders');
+	 return Redirect::to('/orders');
 
 
 

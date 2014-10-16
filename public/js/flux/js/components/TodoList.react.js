@@ -3,6 +3,7 @@
 var React = require('react');
 var ReactPropTypes = React.PropTypes;
 var OrderActions = require('../actions/OrderActions');
+var OrderActions = require('../actions/TodoActions');
 var OrderStore = require('../stores/OrderStore');
 
 
@@ -28,7 +29,6 @@ var TodoList = React.createClass({
 
     this.setState(getTodoListState());
   },
-
   render: function(){
     var listData = this.state.data;
     var a = listData.map(function(v, i){
@@ -38,8 +38,9 @@ var TodoList = React.createClass({
         return(
           <div className="row pb-10">
             <div className="col-md-7 text-m">
-              <input type="checkbox" />
-              <span className="ml-10">{item.num}份</span>
+
+              <span className="ml-10">{item.num}份 <Todo totalNum={item.num} checkedNum={1} /></span>
+
             </div>
           </div>
         );
@@ -71,7 +72,31 @@ var TodoList = React.createClass({
   }
 });
 
+var Todo = React.createClass({
+  getInitialState: function(){
+    return null;
+  },
+  wow: function(){
+    alert(1);
+  },
+  render: function(){
+    var checklist = [];
+    for(i=1;i<=parseInt(this.props.totalNum);i++){
+      if(i<=this.props.checkedNum){
+          checklist.push(<input type="checkbox" className="mr-10" defaultChecked onClick={this.wow}/>);
+      }else{
+          checklist.push(<input type="checkbox" className="mr-10" />);
+      }
 
+
+    }
+
+
+    return(
+      <span>{checklist}</span>
+    );
+  }
+});
 
 
 module.exports = TodoList;

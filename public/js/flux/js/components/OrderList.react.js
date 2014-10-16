@@ -56,7 +56,10 @@ var OrderList = React.createClass({
             </div>
             <div>
               {b}
-              <div className="text-right text-xl pt-10"><b>¥{total_price}</b></div>
+              <div className="text-right text-xl pt-10 clearfix">
+              <button href="#" type="submit" className="btn btn-success btn-sm pull-right">收款</button>
+              <b className="pull-right mr-20">¥{total_price}</b>
+              </div>
 
             </div>
 

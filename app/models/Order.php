@@ -7,4 +7,9 @@ class Order extends Eloquent{
         return $this->hasMany('Orderdetail');
   }
 
+  public function todolist()
+  {
+        return $this->hasMany('Todolist');
+  }
+
 }

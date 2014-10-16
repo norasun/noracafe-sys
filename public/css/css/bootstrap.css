@@ -2700,16 +2700,16 @@ select[multiple].input-lg,
 .btn-success {
   color: #fff;
   background-color: #21d992;
-  border-color: #1ec383; }
+  border-color: #21d992; }
   .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
     color: #fff;
     background-color: #1aad74;
-    border-color: #168e5f; }
+    border-color: #19a46e; }
   .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
     background-image: none; }
   .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {
     background-color: #21d992;
-    border-color: #1ec383; }
+    border-color: #21d992; }
   .btn-success .badge {
     color: #21d992;
     background-color: #fff; }

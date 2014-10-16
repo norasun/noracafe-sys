@@ -8,7 +8,8 @@
     $orderList = $orderList->load('Orderdetails')->toJson();
 
     $todoList = Product::has('Orderdetails')->take(1000)->orderBy('created_at')->get();
-    $todoList = $todoList->load('Orderdetails')->toJson();
+    $todoList = $todoList->load('Orderdetails');
+    //$todoList = $todoList->load('Todolist')->toJson();
 
   ?>
 
@@ -26,16 +27,21 @@
 
     </div>
     <div class="row">
-      <div class="col-md-6">
-        <div class="pb-20 text-l">
-          全部订单
+
+
+      <div class="col-md-5">
+        <div class="pb-20 text-m">
+          <b>今天</b>
+          <a href="#" class="ml-20">本周</a>
+          <a href="#" class="ml-20">本月</a>
+          <a href="#" class="ml-20">全部</a>
         </div>
         <div id="orderList"></div>
       </div>
 
-      <div class="col-md-6">
-        <div class="pb-20 text-l">
-          厨房清单
+      <div class="col-md-4">
+        <div class="pb-20 text-m">
+          <b>待办清单</b>
         </div>
         <div id="todoList" ></div>
       </div>

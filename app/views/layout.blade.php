@@ -11,7 +11,7 @@
     <title>乐店</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link href="/css/jquery.datetimepicker.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -30,7 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    
+
 
   </head>
 
@@ -49,10 +49,8 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">首页</a></li>
-
-            <li><a href="/create_ingredient">采购</a></li>
-            <li><a href="/create_product">商品</a></li>
+            <li class="active"><a href="/">统计</a></li>
+            <li><a href="/orders">客户</a></li>
             <li><a href="/orders">订单</a></li>
             <li>
               <a href="/create_order" type="button" class="btn btn-default nav-btn" style="margin-top:10px;margin-left:30px;"><i class="fa fa-plus"></i> 点单</a>
@@ -62,8 +60,8 @@
           </ul>
 
           <ul class="nav navbar-nav pull-right">
-
-            <li><a href="/" > ... </a></li>
+            <li><a href="/" >论坛</a></li>
+            <li><a href="/" >账户</a></li>
 
 
           </ul>

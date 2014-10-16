@@ -16,6 +16,7 @@ class CreateOrderdetailsTable extends Migration {
 		Schema::create('orderdetails', function($table)
 		{
 				$table->bigInteger('order_id')->unsigned();
+				$table->bigIncrements('id');
 				$table->integer('product_id');
 				$table->integer('num');
 				$table->integer('price');
