@@ -4,7 +4,7 @@
 @section('content')
 
   <?php
-    $orderList = Order::take(100)->orderBy('created_at', 'desc')->get();
+    $orderList = Order::has('Orderdetails')->take(100)->orderBy('created_at', 'desc')->get();
     $orderList = $orderList->load('Orderdetails')->toJson();
 
     $todoList = Product::has('Orderdetails')->take(1000)->orderBy('created_at')->get();

@@ -69,7 +69,7 @@ Route::post('/set_orderdetail', function(){
 	$orderdetail = Orderdetail::find(Input::get('todoId'));
 	$orderdetail->checked_num = Input::get('checkedNum');
 	$orderdetail->save();
-	
+
 
 });
 
@@ -83,7 +83,8 @@ Route::get('/create_order', function(){
 Route::post('/create_order', function(){
 
 	$order = new Order;
-	$order->detail_id = 123;
+	$order->completed = 0;
+	$order->paid = 0;
 	$order->save();
 
 	$order_id = $order->id;
@@ -102,6 +103,7 @@ Route::post('/create_order', function(){
 			'product_id' => $v['productID'],
 			'num' => $v['productQuantity'],
 			'checked_num' => 0,
+			'completed' => 0,
 			'price' => $v['productPrice'],
 			'name' => $v['productName']
 		));

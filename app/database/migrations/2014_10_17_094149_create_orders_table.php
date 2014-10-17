@@ -16,7 +16,8 @@ class CreateOrdersTable extends Migration {
 		Schema::create('orders', function($table)
 		{
 				$table->bigIncrements('id')->unsigned();
-				$table->integer('detail_id');
+				$table->integer('completed');
+				$table->integer('paid');
 				$table->timestamps();
 		});
 	}

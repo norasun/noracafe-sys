@@ -22,6 +22,7 @@ class CreateOrderdetailsTable extends Migration {
 				$table->integer('checked_num');
 				$table->integer('price');
 				$table->string('name');
+				$table->integer('completed');
 				$table->timestamps();
 				$table->index('order_id');
 				$table->foreign('order_id')->references('id')->on('orders');
