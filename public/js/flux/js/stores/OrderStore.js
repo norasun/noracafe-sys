@@ -71,16 +71,23 @@ function reduce(orderInfo){
 function updateTodo(data){
 
   _todoList.map(function(v,i){
+
     var orderdetails = v.orderdetails;
     var firstDom = i;
     orderdetails.map(function(v,i){
       var secondDom = i;
       if(v.id == data.todoId){
-        _todoList[firstDom].orderdetails[secondDom].checked_num = data.checkedNum;
-        
+        _todoList[firstDom].orderdetails[secondDom].checked_num = parseInt(data.checkedNum);
+        //更新数据库
+        $.post('/set_orderdetail',{"todoId":data.todoId,"checkedNum":data.checkedNum}).done(function(data){
+
+        });
+
+        console.log(_todoList);
       }
     });
   });
+
 
 
 

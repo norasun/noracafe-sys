@@ -28,7 +28,7 @@ var TodoList = React.createClass({
 
   _onChange: function(){
     this.setState({data: getTodoListState()});
-    alert('changed!');
+
   },
   render: function(){
     var listData = this.state.data;
@@ -76,13 +76,10 @@ var TodoList = React.createClass({
 });
 
 var Todo = React.createClass({
-  getInitialState: function(){
-    return null;
-  },
+
 
   updateTodolist: function(event){
-    //console.log(data);
-  //  console.log(event.target.value);
+
     TodoActions.update({
       "todoId": this.props.todoId,
       "checkedNum": event.target.value
@@ -96,12 +93,10 @@ var Todo = React.createClass({
     for(i=1;i<=parseInt(this.props.totalNum);i++){
       var todo_keyname = 'todo' + i;
       if(i<=checkedNum){
-
-          checklist.push(<input key={todo_keyname} type="checkbox" className="mr-10" value={i} defaultChecked onChange={this.updateTodolist} />);
+          checklist.push(<input key={todo_keyname} type="checkbox" className="mr-10" value={i} checked onChange={this.updateTodolist} onMouseOver={this.updateTodolist} />);
       }else{
-          checklist.push(<input key={todo_keyname} type="checkbox" className="mr-10" value={i} onChange={this.updateTodolist} />);
+          checklist.push(<input key={todo_keyname} type="checkbox" className="mr-10" value={i} onChange={this.updateTodolist} onMouseOver={this.updateTodolist} />);
       }
-
 
     }
 

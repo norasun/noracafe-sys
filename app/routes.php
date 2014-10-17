@@ -64,6 +64,15 @@ Route::get('/orders', function()
 	return View::make('orders');
 });
 
+Route::post('/set_orderdetail', function(){
+
+	$orderdetail = Orderdetail::find(Input::get('todoId'));
+	$orderdetail->checked_num = Input::get('checkedNum');
+	$orderdetail->save();
+	
+
+});
+
 //下订单
 Route::get('/create_order', function(){
 
