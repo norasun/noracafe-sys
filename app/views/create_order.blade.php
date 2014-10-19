@@ -14,7 +14,7 @@
         <div class="mb-15" style="margin-top:20px;">
           <p>
             <strong class="text-xxl mr-20">点单</strong>
-            <a href="/create_product" class="btn btn-default btn-xs">菜单设置</a>
+            <a href="/create_product">菜单设置</a>
           </p>
         </div>
       </div>

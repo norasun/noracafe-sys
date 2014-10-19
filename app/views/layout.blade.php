@@ -53,15 +53,15 @@
             <li><a href="/orders">客户</a></li>
             <li><a href="/orders">订单</a></li>
             <li>
-              <a href="/create_order" type="button" class="btn btn-default nav-btn" style="margin-top:10px;margin-left:30px;"><i class="fa fa-plus"></i> 点单</a>
+              <a href="/create_order" type="button" class="btn btn-default nav-btn" style="margin-top:10px;margin-left:30px;">点单</a>
             </li>
 
 
           </ul>
 
           <ul class="nav navbar-nav pull-right">
-            <li><a href="/" >论坛</a></li>
-            <li><a href="/" >账户</a></li>
+
+            <li></li>
 
 
           </ul>

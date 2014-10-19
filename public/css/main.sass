@@ -1,3 +1,10 @@
+$main-color: #2979ff
+$main-second-color: #448aff
+$main-dark-color: #2962ff
+
+$main-btn-color: #0BDCA8
+$main-btn-hover-color: #0AC194
+
 body
   padding-top: 64px
 
@@ -44,8 +51,8 @@ body
 .text-pink
   color: #D85752
 .navbar
-  background: #f1f1f1
-  //box-shadow: 0 0 2px rgba(0,0,0,0.1)
+  background: $main-color
+  //box-shadow: 0 0 0px 1px #fff
   border: 0
   font-size: 16px
   //border-bottom: 1px solid #eee
@@ -53,16 +60,17 @@ body
 /* logo */
 .logo,.logo:hover
   background: url("../img/logo.png") no-repeat center center
-  background-size: 48px auto
+  background-size: 40px auto
   width: 50px
   height: 50px
   margin-right: 25px
   display: inline-block
   overflow: hidden
+  opacity: 1
   transition: all 0.5s
 
 .logo:hover
-  opacity: 0.8
+  opacity: 0.9
 
 
 .headroom
@@ -81,37 +89,43 @@ body
 
 
 .navbar-nav a
-  color: #777
+  color: #fff
   transition: all 0.3s
 
 .nav li a
   padding-left: 20px
   padding-right: 20px
+.nav li a:hover
+  background: $main-dark-color
 .nav li.active a
   //border-bottom: 4px solid #888
   height: 50px
 nav li a.nav-btn, nav li a.nav-btn:hover
   padding: 5px 30px
   margin: 0
-  border: 2px solid #1DE9B6
-  color: #14C195
-  font-weight: bold
-  background: #f5f5f5
+  border: 1px solid #fff
+  color: #fff
+  font-weight: bolder
+  background: $main-color
+  opacity: 1
 nav li a.nav-btn:hover
-  box-shadow: 0 0 0 1px rgba(29,233,182,1)
+  opacity: 1
+  background: #fff
+  color: $main-color
+  // box-shadow: 0 0 0 1px rgba(29,233,182,1)
 
 
 
 /* button */
 .btn-mwm,.btn-mwm:hover
-  background: #21d992
+  background: $main-btn-color
   border: 0
   color: #fff
   transition: all 0.3s
   outline: none
 
 .btn-mwm:hover
-  background: #11be7b
+  background: $main-btn-hover-color
 
 
 /* 容器 */
@@ -153,10 +167,10 @@ a.Product p.help-block
 a.Product .btn
   margin: 7px 0 0 0
 a.selectedProduct
-  border-color: #1DE9B6
-  box-shadow: 0 0 0 1px rgba(29,233,182,1)
+  border-color: $main-second-color
+  //box-shadow: 0 0 0 1px #999
 a.Product span.select_num
-  color: #0eb289
+  color: $main-second-color
   font-size: 22px
   position: absolute
   bottom: 10px
