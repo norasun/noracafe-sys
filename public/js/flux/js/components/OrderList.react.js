@@ -25,7 +25,6 @@ var OrderList = React.createClass({
   },
 
   _onChange: function(){
-
     this.setState({data: getOrderListState()});
   },
 

@@ -87,10 +87,11 @@ var createOrderList = React.createClass({
   render: function(){
 
     var data = this.state.allOrders;
-
+    var total_price = 0;
     var createOrderList = data.map(function(item){
       console.log(item.productQuantity);
       var key = Date.now();
+      total_price += item.productPrice * item.productQuantity;
       return(
 
           <OrderItem itemID={item.productID} name={item.productName} price={item.productPrice} num={item.productQuantity} />
@@ -104,6 +105,7 @@ var createOrderList = React.createClass({
     return(
       <div>
         {createOrderList}
+        <div>{total_price}</div>
         <input type="hidden" name="hiddendata" value={textData} />
       </div>
 

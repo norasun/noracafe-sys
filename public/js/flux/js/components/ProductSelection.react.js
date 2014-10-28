@@ -25,17 +25,31 @@ var ProductItem = React.createClass({
     return false;
   },
 
+  _reduceOrder: function(){
+
+    OrderActions.reduce({
+      productID: this.props.key,
+      productName: this.props.name,
+      productPrice: this.props.price
+    });
+
+    return false;
+  },
+
   render: function(){
     //默认情况下产品未被选中
     var selected = 'Product clearfix';
     var select_num = '';
+    var reduce_btn = '';
     //如果选中则高亮该产品
     if(this.props.num > 0){
       selected = 'Product clearfix selectedProduct';
       select_num = 'x' + this.props.num;
+      reduce_btn = <a href="#" className="fa fa-minus-circle reduce_red_btn" onClick={this._reduceOrder}></a>;
     }
     return(
       <div className="col-md-4">
+      {reduce_btn}
       <a className={selected} href="#" ref="productContent"  onClick={this._addOrder}>
 
         <p className="text-l">

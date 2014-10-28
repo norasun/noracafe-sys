@@ -3,6 +3,7 @@
 class Orderdetail extends Eloquent{
 
    protected $fillable = array('order_id', 'product_id', 'num', 'checked_num', 'completed', 'price', 'name');
+   protected $hidden = array('password');
 
    public function order()
    {

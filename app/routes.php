@@ -11,6 +11,12 @@
 |
 */
 
+
+//登录
+Route::get('/login', function(){
+	return View::make('login');
+});
+
 Route::get('/', function()
 {
 	return View::make('hello');
@@ -77,6 +83,12 @@ Route::post('/set_orderdetail', function(){
 Route::get('/create_order', function(){
 
 	return View::make('create_order');
+
+});
+//修改订单
+Route::get('/update_order/{id}', function($id){
+
+	return View::make('create_order')->with('order_id', $id);
 
 });
 

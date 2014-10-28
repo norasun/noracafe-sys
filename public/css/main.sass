@@ -1,18 +1,21 @@
-$main-color: #2979ff
+$main-color: #5677fc
 $main-second-color: #448aff
 $main-dark-color: #2962ff
 
 $main-btn-color: #0BDCA8
 $main-btn-hover-color: #0AC194
 
+
 body
-  padding-top: 64px
+  padding-top: 50px
 
 .starter-template
   padding: 40px 15px
   text-align: center
 .btn:focus,.btn:active
   outline: 0 !important
+.mt-20
+  margin-top: 20px
 .mt-30
   margin-top: 30px
 .ml-10
@@ -36,13 +39,13 @@ body
 .pb-5
   padding-bottom: 5px
 .text-xxl
-  font-size: 46px
+  font-size: 28px
   line-height: 110%
 .text-xl
   font-size: 28px
   line-height: 110%
 .text-l
-  font-size: 20px
+  font-size: 18px
   line-height: 110%
 .text-m
   font-size: 16px
@@ -64,6 +67,7 @@ body
   width: 50px
   height: 50px
   margin-right: 25px
+  margin-left: 20px
   display: inline-block
   overflow: hidden
   opacity: 1
@@ -104,14 +108,14 @@ nav li a.nav-btn, nav li a.nav-btn:hover
   padding: 5px 30px
   margin: 0
   border: 1px solid #fff
-  color: #fff
+  color: $main-color
   font-weight: bolder
-  background: $main-color
+  background: #fff
   opacity: 1
 nav li a.nav-btn:hover
-  opacity: 1
-  background: #fff
-  color: $main-color
+  opacity: 0.8
+  // background: #fff
+  // color: $main-color
   // box-shadow: 0 0 0 1px rgba(29,233,182,1)
 
 
@@ -137,16 +141,17 @@ nav li a.nav-btn:hover
   background: #f5f5f5
   // border: 1px solid #ddd
   padding: 20px
-  margin-top: 10px
-  border-radius: 4px
+  height: 100vh
+  max-width: 600px
   color: #333
 
 /* product*/
 a.Product,.a.Product:hover
   padding: 14px
-  margin: 10px 0
-  border: 1px solid #ddd
-  border-radius: 4px
+  margin: -1px 0 0 0
+  border: 1px solid #eee
+  border-right: 1px solid #fff
+  border-left: 1px solid #fff
   display: block
   color: #424242
   display: block
@@ -167,8 +172,11 @@ a.Product p.help-block
 a.Product .btn
   margin: 7px 0 0 0
 a.selectedProduct
-  border-color: $main-second-color
-  //box-shadow: 0 0 0 1px #999
+  z-index: 999
+  //border-color: $main-second-color
+  box-shadow: 0 0 0 0 $main-second-color
+  //border-radius: 4px
+
 a.Product span.select_num
   color: $main-second-color
   font-size: 22px
@@ -227,3 +235,19 @@ a.orderDelete:hover,a.orderAdd:hover
 .lineList
   border-bottom: 1px solid #eee
   padding: 8px 0
+
+a.reduce_red_btn,a.reduce_red_btn:hover
+  line-height: 100%
+  text-decoration: none
+  border-radius: 30px
+  display: block
+  background: #fff
+  font-size: 30px
+  color: #ff5252
+  z-index: 9999
+  font-weight: bold
+  position: absolute
+  top: 5px
+  right: 15px
+a.reduce_red_btn:hover
+  color: #e53935
