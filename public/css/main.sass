@@ -4,7 +4,7 @@ $main-dark-color: #2962ff
 
 $main-btn-color: #0BDCA8
 $main-btn-hover-color: #0AC194
-
+$light-gray-bg: #f5f5f5
 
 body
   padding-top: 50px
@@ -33,7 +33,7 @@ body
 .pl-30
   padding-left: 30px
 .pt-20
-  margin-top: 20px
+  padding-top: 20px
 .pt-10
   padding-top: 10px
 .pb-5
@@ -142,13 +142,13 @@ nav li a.nav-btn:hover
   // border: 1px solid #ddd
   padding: 20px
   height: 100vh
-  max-width: 600px
+
   color: #333
 
 /* product*/
 a.Product,.a.Product:hover
   padding: 14px
-  margin: -1px 0 0 0
+  margin: -1px 10px 0 10px
   border: 1px solid #eee
   border-right: 1px solid #fff
   border-left: 1px solid #fff
@@ -158,10 +158,14 @@ a.Product,.a.Product:hover
   //transition: all 0.3s
   position: relative
   text-decoration: none
+  transition: all 0.2s
 
 a.Product:hover, a.Product:active
   text-decoration: none
-  background: #f8f8f8
+  //background: #f8f8f8
+  z-index: 999
+  border-top-color: $main-second-color
+  border-bottom-color: $main-second-color
 a.Product p, a.Product i
   padding: 0
   height: auto
@@ -172,7 +176,7 @@ a.Product p.help-block
 a.Product .btn
   margin: 7px 0 0 0
 a.selectedProduct
-  z-index: 999
+  // z-index: 999
   //border-color: $main-second-color
   box-shadow: 0 0 0 0 $main-second-color
   //border-radius: 4px
@@ -191,7 +195,7 @@ a.Product span.select_num
 .Order
   border-bottom: 0px solid #eee
   padding: 15px 5px
-  font-size: 20px
+  font-size: 16px
 .OrderList
   border-bottom: 1px solid #777
 a.orderDelete,a.orderAdd

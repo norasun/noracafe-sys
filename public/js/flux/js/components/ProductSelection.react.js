@@ -48,8 +48,8 @@ var ProductItem = React.createClass({
       reduce_btn = <a href="#" className="fa fa-minus-circle reduce_red_btn" onClick={this._reduceOrder}></a>;
     }
     return(
-      <div className="col-md-4">
-      {reduce_btn}
+      <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+       
       <a className={selected} href="#" ref="productContent"  onClick={this._addOrder}>
 
         <p className="text-l">

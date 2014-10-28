@@ -23,7 +23,7 @@
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-9 col-lg-9">
         <div class="row">
 
           <div class="col-md-10 col-md-offset-1">
@@ -46,7 +46,7 @@
 
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-3 col-lg-3">
         <div class="black-container">
           <form role="form" method="post" action="create_order">
 
@@ -57,8 +57,8 @@
           <div class="pt-20">
             <textarea class="form-control" rows="2" placeholder="备注..."></textarea>
           </div>
-          <div class="pt-20 clearfix" style="position:fixed;bottom:20px;right:20px;background:#333;width:auto">
-
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="box-shadow:20px 0 50px 0 #f5f5f5;position:fixed;right:0;bottom:0;background:#f5f5f5;padding:20px;">
+            <span class="text-xxl" style="padding-top:20px;margin-top:40px;">¥228</span>
             <button href="#" type="submit" class="btn btn-mwm btn-lg pull-right" >下单</button>
           </div>
           </form>
