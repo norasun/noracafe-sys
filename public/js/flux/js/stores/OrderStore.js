@@ -5,7 +5,13 @@ var merge = require('react/lib/merge');
 var CHANGE_EVENT = 'change';
 
 
-var _newOrder = [];
+
+if(typeof newOrder == 'undefined'){
+  var _newOrder = {};
+}else{
+  var _newOrder = newOrder; //从服务端网页中获取数据
+}
+
 
 if(typeof orderListData == 'undefined'){
   var _orders = {};

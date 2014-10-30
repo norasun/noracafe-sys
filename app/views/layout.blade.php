@@ -48,21 +48,23 @@
           <a class="logo" href="#"></a>
         </div>
         <div class="collapse navbar-collapse">
+
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">统计</a></li>
             <li><a href="/orders">客户</a></li>
             <li><a href="/orders">订单</a></li>
             <li>
-              <a href="/create_order" type="button" class="btn btn-default nav-btn" style="margin-top:10px;margin-left:30px;">点单</a>
+
             </li>
 
 
           </ul>
 
-          <ul class="nav navbar-nav pull-right">
+          <ul class="nav pull-right">
 
-            <li></li>
-
+            <li>
+              <a href="/create_order" type="button" class="btn btn-default nav-btn">点单</a>
+            </li>
 
           </ul>
         </div><!--/.nav-collapse -->

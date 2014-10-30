@@ -47,10 +47,10 @@ var OrderItem = React.createClass({
     var total_price = parseInt(this.props.price) * parseInt(this.props.num);
     return(
       <div className="Order clearfix">
-        <span className="pull-left">{this.props.name}</span>
+        <span className="pull-left">{this.props.name}  <span className="text-gray text-s">¥{this.props.price}</span></span>
 
-        <span className="pull-right">¥{total_price}</span>
-        <a href="#" className="pull-right orderAdd mr-20" onClick={this._addOrder}> + </a>
+
+        <a href="#" className="pull-right orderAdd" onClick={this._addOrder}> + </a>
         <span className="pull-right orderNum">{this.props.num}</span>
         <a href="#" className="pull-right orderDelete" onClick={this._reduceOrder}> - </a>
 
@@ -105,8 +105,18 @@ var createOrderList = React.createClass({
     return(
       <div>
         {createOrderList}
-        <div>{total_price}</div>
+
         <input type="hidden" name="hiddendata" value={textData} />
+
+        <div className="pt-20">
+          <textarea className="form-control" rows="2" placeholder="备注"></textarea>
+        </div>
+        <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 footerBar">
+
+          <button href="#" type="submit" className="btn btn-mwm btn-lg pull-right" >下单</button>
+          <span className="text-xxl mt-20 mr-20 pull-right">¥{total_price}</span>
+        </div>
+
       </div>
 
     );

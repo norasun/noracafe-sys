@@ -2,11 +2,16 @@
 var React = require('react');
 var OrderActions = require('../actions/OrderActions');
 var ProductStore = require('../stores/ProductStore');
+var OrderStore = require('../stores/OrderStore');
 
 function getProductState(){
 
   return ProductStore.getAll();
 
+}
+
+function getOrderState(){
+  return OrderStore.getNewOrder();
 }
 
 
@@ -49,7 +54,7 @@ var ProductItem = React.createClass({
     }
     return(
       <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-       
+
       <a className={selected} href="#" ref="productContent"  onClick={this._addOrder}>
 
         <p className="text-l">
@@ -73,7 +78,7 @@ var ProductItem = React.createClass({
 var ProductSelection = React.createClass({
 
   getInitialState: function(){
-    return {data : getProductState()};
+    return {data : getProductState(), orderData: getOrderState()};
   },
   componentDidMount: function() {
     ProductStore.addChangeListener(this._onChange);
@@ -85,18 +90,25 @@ var ProductSelection = React.createClass({
 
   _onChange: function(){
 
-    this.setState({data: getProductState()});
+    this.setState({data: getProductState(), orderData: getOrderState()});
   },
   render: function(){
 
     var data = this.state.data;
+    var orderData = this.state.orderData;
     var ii = 1;
 
     var ProductList = data.map(function(item){
+      var productQuantity = 0;
+      var aaa = orderData.map(function(wow){
+        if(wow.productID == item.id){
+          productQuantity = wow.productQuantity;
+        }
+      });
 
       return (
 
-        <ProductItem name={item.name} price={item.price} key={item.id} itemID={item.id} num={item.number} />
+        <ProductItem name={item.name} price={item.price} key={item.id} itemID={item.id} num={productQuantity} />
 
       );
 

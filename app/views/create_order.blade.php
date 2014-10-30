@@ -6,12 +6,28 @@
   <?php
     $products = Product::all()->toJson();
 
+    $newOrder = json_encode(array());
+
     if(isset($order_id)){
       $orderList = Order::find($order_id);
 
+      $jsStore = array();
+
       if($orderList){
-          $orderList = $orderList->load('Orderdetails')->toJson();
-          echo $orderList;
+          $orderList = $orderList->load('Orderdetails');
+
+          foreach($orderList['orderdetails'] as $v){
+
+            $jsStore[] = array(
+              'productID' => $v['product_id'],
+              'productName' => $v['name'],
+              'productPrice' => $v['price'],
+              'productQuantity' => $v['num']
+            );
+
+          }
+
+          $newOrder = json_encode($jsStore);
       }
 
 
@@ -23,16 +39,17 @@
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-md-9 col-lg-9">
+      <div class="col-md-8 col-lg-8">
         <div class="row">
 
           <div class="col-md-10 col-md-offset-1">
             <div class="white-container">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-md-12  mt-20 mb-20">
-                    <strong class="text-xxl mr-20">点单</strong>
-                    <a href="/create_product">设置</a>
+                  <div class="col-md-12 text-center pt-50 pb-50 clearfix">
+                    <a href="/create_product" class="pt-5" style="position: absolute;top:20px;right:10px">设置</a>
+                    <strong class="text-xxl">点单</strong>
+
                   </div>
                 </div>
                 <div id="productList" class="row">
@@ -46,7 +63,7 @@
 
       </div>
 
-      <div class="col-md-3 col-lg-3">
+      <div class="col-md-4 col-lg-4">
         <div class="black-container">
           <form role="form" method="post" action="create_order">
 
@@ -54,13 +71,7 @@
 
           </div>
 
-          <div class="pt-20">
-            <textarea class="form-control" rows="2" placeholder="备注..."></textarea>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="box-shadow:20px 0 50px 0 #f5f5f5;position:fixed;right:0;bottom:0;background:#f5f5f5;padding:20px;">
-            <span class="text-xxl" style="padding-top:20px;margin-top:40px;">¥228</span>
-            <button href="#" type="submit" class="btn btn-mwm btn-lg pull-right" >下单</button>
-          </div>
+
           </form>
         </div>
 
@@ -78,6 +89,7 @@
 @section('js')
 <script>
   var data = {{$products}};
+  var newOrder = {{$newOrder}};
 </script>
 <!--script src="/js/order.js"></script-->
 <script src="/js/flux/js/bundle.js"></script>

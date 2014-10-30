@@ -38,6 +38,10 @@ body
   padding-top: 10px
 .pb-5
   padding-bottom: 5px
+.pt-50
+  padding-top: 50px
+.pb-50
+  padding-bottom: 50px
 .text-xxl
   font-size: 28px
   line-height: 110%
@@ -45,10 +49,12 @@ body
   font-size: 28px
   line-height: 110%
 .text-l
-  font-size: 18px
+  font-size: 16px
   line-height: 110%
 .text-m
   font-size: 16px
+.text-s
+  font-size: 12px
 .text-gray
   color: #a1a1a1
 .text-pink
@@ -66,8 +72,6 @@ body
   background-size: 40px auto
   width: 50px
   height: 50px
-  margin-right: 25px
-  margin-left: 20px
   display: inline-block
   overflow: hidden
   opacity: 1
@@ -90,8 +94,15 @@ body
 
 .navbar-header
   height: 50px
+  padding: 0 30px
+.navbar-nav
 
 
+  margin: 0 auto
+  
+.navbar-nav li
+  float: none
+  display: inline-block
 .navbar-nav a
   color: #fff
   transition: all 0.3s
@@ -99,6 +110,8 @@ body
 .nav li a
   padding-left: 20px
   padding-right: 20px
+
+
 .nav li a:hover
   background: $main-dark-color
 .nav li.active a
@@ -112,6 +125,8 @@ nav li a.nav-btn, nav li a.nav-btn:hover
   font-weight: bolder
   background: #fff
   opacity: 1
+  margin-top: 10px
+  margin-right: 20px
 nav li a.nav-btn:hover
   opacity: 0.8
   // background: #fff
@@ -138,11 +153,11 @@ nav li a.nav-btn:hover
   //box-shadow: 0 1px 2px rgba(0,0,0,0.1)
 
 .black-container
-  background: #f5f5f5
+  background: #f2f2f2
   // border: 1px solid #ddd
   padding: 20px
-  height: 100vh
-
+  min-height: 100vh
+  padding-bottom: 150px
   color: #333
 
 /* product*/
@@ -183,7 +198,7 @@ a.selectedProduct
 
 a.Product span.select_num
   color: $main-second-color
-  font-size: 22px
+  font-size: 20px
   position: absolute
   bottom: 10px
   right: 10px
@@ -255,3 +270,12 @@ a.reduce_red_btn,a.reduce_red_btn:hover
   right: 15px
 a.reduce_red_btn:hover
   color: #e53935
+
+.footerBar
+  box-shadow: 20px 0 50px 0 #f2f2f2
+  position: fixed
+  right: 0
+  bottom: 0
+  background: #f2f2f2
+  padding: 20px
+  z-index: 9999
