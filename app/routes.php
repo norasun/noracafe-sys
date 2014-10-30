@@ -134,7 +134,47 @@ Route::post('/create_order', function(){
 
 
 });
-//
+
+Route::post('/update_order/{id}', function($id){
+
+	$thisOrder = Order::find($id);
+
+	$order_details = Input::get('hiddendata');
+	$order_details = json_decode($order_details, true);
+
+	$order_list = Array();
+
+	foreach($order_details as $v){
+
+		if(isset($v['orderdetailID'])){
+
+			$orderdetailOperation = Orderdetail::find($v['orderdetailID']);
+			$orderdetailOperation->num = $v['productQuantity'];
+			$orderdetailOperation->save();
+
+
+		}else{
+			$order_list[] = new Orderdetail(array(
+				'order_id' => $id,
+				'product_id' => $v['productID'],
+				'num' => $v['productQuantity'],
+				'checked_num' => 0,
+				'completed' => 0,
+				'price' => $v['productPrice'],
+				'name' => $v['productName']
+			));
+		}
+
+		if(count($order_list) > 0){
+			$thisOrder->Orderdetails()->saveMany($order_list);
+		}
+
+		return Redirect::to('/orders');
+
+	}
+
+});
+
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');

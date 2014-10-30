@@ -4,11 +4,17 @@
 @section('content')
 
   <?php
+
+    $action_url = 'create_order';
+
     $products = Product::all()->toJson();
 
     $newOrder = json_encode(array());
 
     if(isset($order_id)){
+
+      $action_url = '/update_order/' + $order_id;
+
       $orderList = Order::find($order_id);
 
       $jsStore = array();
@@ -19,6 +25,7 @@
           foreach($orderList['orderdetails'] as $v){
 
             $jsStore[] = array(
+              'orderdetailID' => $v['id'],
               'productID' => $v['product_id'],
               'productName' => $v['name'],
               'productPrice' => $v['price'],
@@ -65,7 +72,7 @@
 
       <div class="col-md-4 col-lg-4">
         <div class="black-container">
-          <form role="form" method="post" action="create_order">
+          <form role="form" method="post" action="{{$action_url}}">
 
           <div id="createOrderList">
 
