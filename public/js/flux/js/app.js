@@ -26,10 +26,10 @@ if( document.getElementById("orderList") ){
     document.getElementById('orderList')
   );
 }
-
-if( document.getElementById("todoList") ){
-  React.renderComponent(
-    <TodoList />,
-    document.getElementById('todoList')
-  );
-}
+//
+// if( document.getElementById("todoList") ){
+//   React.renderComponent(
+//     <TodoList />,
+//     document.getElementById('todoList')
+//   );
+// }

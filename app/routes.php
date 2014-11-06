@@ -153,6 +153,7 @@ Route::post('/update_order/{id}', function($id){
 			$orderdetailOperation->save();
 
 
+
 		}else{
 			$order_list[] = new Orderdetail(array(
 				'order_id' => $id,
@@ -163,13 +164,15 @@ Route::post('/update_order/{id}', function($id){
 				'price' => $v['productPrice'],
 				'name' => $v['productName']
 			));
+
+
 		}
 
 		if(count($order_list) > 0){
 			$thisOrder->Orderdetails()->saveMany($order_list);
 		}
 
-		return Redirect::to('/orders');
+		return Redirect::route('/orders');
 
 	}
 

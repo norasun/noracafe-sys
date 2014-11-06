@@ -68,7 +68,7 @@ body
 
 /* logo */
 .logo,.logo:hover
-  background: url("../img/logo.png") no-repeat center center
+  background: url("../img/logo.svg") no-repeat center center
   background-size: 40px auto
   width: 50px
   height: 50px
@@ -99,7 +99,7 @@ body
 
 
   margin: 0 auto
-  
+
 .navbar-nav li
   float: none
   display: inline-block
@@ -244,9 +244,9 @@ a.orderDelete:hover,a.orderAdd:hover
 .Order
   transition: all 1s
 .perOrder
-  border: 1px solid #ddd
-  padding: 20px
-  border-radius: 4px
+  border-bottom: 1px solid #e5e5e5
+  padding: 20px 40px 20px 40px
+  //border-radius: 4px
   margin: 10px 0
 .b_line
   border-bottom: 0 solid #d5d5d5
@@ -279,3 +279,19 @@ a.reduce_red_btn:hover
   background: #f2f2f2
   padding: 20px
   z-index: 9999
+
+
+.edit-btn,.trash-btn
+  width: 40px
+  height: 40px
+  display: inline-block
+  border: 1px solid #fff
+  border-radius: 40px
+  transition: all 0.5s
+  background: url("../img/edit.svg") no-repeat center center
+.edit-btn:hover
+  border-color: $main-color
+.trash-btn
+  background: url("../img/trash.svg") no-repeat center center
+.trash-btn:hover
+  border-color: #F95843

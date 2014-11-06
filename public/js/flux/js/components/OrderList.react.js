@@ -47,6 +47,7 @@ var OrderList = React.createClass({
           </div>
         );
       });
+      var edit_url = "/update_order/" + v.id;
       return(
         <div  key={first_keyname}>
 
@@ -58,8 +59,9 @@ var OrderList = React.createClass({
             <div>
               {b}
               <div className="text-right text-xl pt-10 clearfix">
-              <button href="#" type="submit" className="btn btn-success btn-sm pull-right">收款</button>
-              <b className="pull-right mr-20">¥{total_price}</b>
+              <a href={edit_url} className="pull-left edit-btn"></a>
+              <a href="#" className="pull-left trash-btn"></a>
+              <b className="pull-right">¥{total_price}</b>
               </div>
 
             </div>

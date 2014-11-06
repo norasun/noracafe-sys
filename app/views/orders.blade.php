@@ -16,10 +16,10 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-md-8">
-        <div class="mb-15" style="margin-top:20px;">
+      <div class="col-md-12">
+        <div class="mb-15 text-center" style="margin-top:40px;">
           <p>
-            <strong class="text-xxl mr-20">订单</strong>
+            <strong class="text-xxl">订单</strong>
 
           </p>
         </div>
@@ -29,8 +29,8 @@
     <div class="row">
 
 
-      <div class="col-md-5">
-        <div class="pb-20 text-m">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="pb-20 text-m text-center" style="border-bottom:1px solid #e5e5e5;padding-bottom:40px">
           <b>今天</b>
           <a href="#" class="ml-20">本周</a>
           <a href="#" class="ml-20">本月</a>
@@ -39,12 +39,6 @@
         <div id="orderList"></div>
       </div>
 
-      <div class="col-md-4">
-        <div class="pb-20 text-m">
-          <b>待办清单</b>
-        </div>
-        <div id="todoList" ></div>
-      </div>
 
     </div>
 

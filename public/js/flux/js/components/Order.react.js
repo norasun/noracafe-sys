@@ -45,6 +45,7 @@ var OrderItem = React.createClass({
 
   render: function(){
     var total_price = parseInt(this.props.price) * parseInt(this.props.num);
+
     return(
       <div className="Order clearfix">
         <span className="pull-left">{this.props.name}  <span className="text-gray text-s">¥{this.props.price}</span></span>
@@ -92,11 +93,14 @@ var createOrderList = React.createClass({
       console.log(item.productQuantity);
       var key = Date.now();
       total_price += item.productPrice * item.productQuantity;
-      return(
+      if(item.productQuantity > 0){
+          return(
 
-          <OrderItem itemID={item.productID} name={item.productName} price={item.productPrice} num={item.productQuantity} />
+              <OrderItem itemID={item.productID} name={item.productName} price={item.productPrice} num={item.productQuantity} />
 
-      );
+          );
+      }
+
 
 
     });

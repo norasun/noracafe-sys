@@ -37,7 +37,7 @@ function add(orderInfo){
   _newOrder.map(function(v, i){
     if(v.productID == orderInfo.productID){
       var quantity = v.productQuantity + 1;
-      
+
       _newOrder[i].productQuantity = quantity;
       changed = true;
     }
@@ -63,10 +63,11 @@ function reduce(orderInfo){
       var quantity = v.productQuantity - 1;
       if(quantity <= 0){
         quantity = 0;
-        _newOrder.splice(i,1);
+        _newOrder[i].productQuantity = quantity;
+        //_newOrder.splice(i,1,newOrderInfo);
+        //_newOrder.splice(i,1);
       }else{
-        newOrderInfo.productQuantity = quantity;
-        _newOrder.splice(i,1,newOrderInfo);
+        _newOrder[i].productQuantity = quantity;
       }
 
     }
