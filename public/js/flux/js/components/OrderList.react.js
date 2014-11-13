@@ -41,9 +41,9 @@ var OrderList = React.createClass({
         total_price += item_price;
         return(
           <div className="row lineList" key={second_keyname}>
-            <div className="col-md-7 text-m">{item.name}</div>
+            <div className="col-md-8 text-m">{item.name}</div>
             <div className="col-md-2 text-right">x{item.num}</div>
-            <div className="col-md-3 text-right"><b>¥{item_price}</b></div>
+            <div className="col-md-2 text-right"><b>¥{item_price}</b></div>
           </div>
         );
       });
@@ -56,13 +56,20 @@ var OrderList = React.createClass({
               <div className="col-md-6"><b>#{v.id}</b></div>
               <div className="col-md-6 text-right"><small className="small text-gray">{formated_time}</small></div>
             </div>
-            <div>
-              {b}
-              <div className="text-right text-xl pt-10 clearfix">
-              <a href={edit_url} className="pull-left edit-btn"></a>
-              <a href="#" className="pull-left trash-btn"></a>
-              <b className="pull-right">¥{total_price}</b>
+            <div className="row vcenter">
+              <div className="col-md-9">
+                {b}
+                <div className="text-right">
+                  <b className="text-xl">¥{total_price}</b>
+                </div>
               </div>
+              <div className="col-md-3">
+                <div className="text-right text-xl pt-10">
+                  <a href={edit_url} className="mr-10 edit-btn"></a>
+                  <a href="#" className="trash-btn"></a>
+                </div>
+              </div>
+
 
             </div>
 
